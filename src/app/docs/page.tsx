@@ -69,7 +69,7 @@ export default function DocsPage() {
         <div className="text-center mt-14 pt-12 border-t border-n2f-border">
           <h2 className="text-2xl font-extrabold text-white mb-2">หาไม่เจอ?</h2>
           <p className="text-n2f-text-muted mb-6">ติดต่อเราเพื่อขอความช่วยเหลือ</p>
-          <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+          <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
             ติดต่อ Support
           </Link>
         </div>

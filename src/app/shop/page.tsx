@@ -157,7 +157,7 @@ export default function ShopPage() {
           <h2 className="text-2xl font-extrabold text-white mb-2">ต้องการ Workflow พิเศษ?</h2>
           <p className="text-n2f-text-muted mb-6">เราสร้าง Custom Workflow ตามความต้องการ</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+            <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
               ติดต่อเรา
             </Link>
             <Link href="/#services" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg border-2 border-white/30 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300">

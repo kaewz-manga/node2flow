@@ -37,7 +37,7 @@ export default function InstallPage() {
           <p className="text-lg text-n2f-text-secondary max-w-[600px] mx-auto leading-[1.7] mb-8">
             มี server แต่ setup ไม่เป็น? เราติดตั้ง n8n + MCP Server ให้พร้อมใช้งาน
           </p>
-          <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300">
+          <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300">
             สนใจบริการนี้
           </Link>
         </div>
@@ -70,7 +70,7 @@ export default function InstallPage() {
         <div className="text-center py-12 border-t border-n2f-border">
           <h2 className="text-2xl font-extrabold text-white mb-2">สนใจบริการนี้?</h2>
           <p className="text-n2f-text-muted mb-6">ติดต่อเราเพื่อรับใบเสนอราคา</p>
-          <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+          <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
             ติดต่อเรา
           </Link>
         </div>

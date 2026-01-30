@@ -37,7 +37,7 @@ export default function PrivatePage() {
             MCP Server ส่วนตัวบน server ของคุณ ปลอดภัย ข้อมูลไม่ออกจากระบบ
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+            <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
               สนใจบริการนี้
             </Link>
             <Link href="/services/saas" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg border-2 border-white/30 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300">
@@ -73,7 +73,7 @@ export default function PrivatePage() {
         <div className="text-center py-12 border-t border-n2f-border">
           <h2 className="text-2xl font-extrabold text-white mb-2">สนใจ Private MCP?</h2>
           <p className="text-n2f-text-muted mb-6">ติดต่อเราเพื่อปรึกษาและรับใบเสนอราคา</p>
-          <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+          <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
             ติดต่อเรา
           </Link>
         </div>

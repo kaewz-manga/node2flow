@@ -136,17 +136,9 @@ export default function Header() {
                   Logout
                 </button>
               </>
-            ) : (
-              <Link
-                href="/login"
-                className="text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Login
-              </Link>
-            )}
+            ) : null}
             <Link
-              href="/get-started"
+              href="/login"
               className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
               onClick={() => setMenuOpen(false)}
             >

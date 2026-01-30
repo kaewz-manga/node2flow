@@ -10,7 +10,7 @@ export default function CTA() {
         <p className="text-n2f-text-muted mb-9">เริ่มต้นฟรี ไม่มีค่าใช้จ่าย</p>
         <div className="flex justify-center">
           <Link
-            href="/get-started"
+            href="/login"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-lg font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300"
           >
             Get Started Free

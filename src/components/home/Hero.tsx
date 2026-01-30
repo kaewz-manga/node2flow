@@ -38,7 +38,7 @@ export default function Hero() {
 
           <div className="flex gap-4 flex-wrap justify-center max-[480px]:flex-col max-[480px]:items-center">
             <Link
-              href="/get-started"
+              href="/login"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
               Get Started Free

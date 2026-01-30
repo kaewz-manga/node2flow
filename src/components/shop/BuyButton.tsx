@@ -22,7 +22,7 @@ export default function BuyButton({
   async function handleClick() {
     if (isFree) {
       // Free products go to get-started for download
-      window.location.href = "/get-started";
+      window.location.href = "/login";
       return;
     }
 

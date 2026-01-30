@@ -64,7 +64,7 @@ export default function SaaSPage() {
             สมัครรับ MCP URL ใช้งานได้ทันที ไม่ต้องติดตั้ง ไม่ต้องมี server เชื่อมต่อ AI กับ n8n ได้เลย
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300">
+            <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300">
               สมัครใช้งาน
             </Link>
             <Link href="/services/private" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg border-2 border-white/30 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300">
@@ -133,7 +133,7 @@ export default function SaaSPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/get-started" className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
+                <Link href="/login" className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300">
                   เริ่มใช้งาน
                 </Link>
               </div>
@@ -145,7 +145,7 @@ export default function SaaSPage() {
         <div className="text-center py-12 border-t border-n2f-border">
           <h2 className="text-2xl font-extrabold text-white mb-2">พร้อมเริ่มต้น?</h2>
           <p className="text-n2f-text-muted mb-6">สมัครฟรี ทดลองใช้งานได้ทันที</p>
-          <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300">
+          <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300">
             Get Started Free
           </Link>
         </div>
