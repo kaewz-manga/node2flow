@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const services = [
   { href: "/services/install", label: "รับติดตั้ง n8n-MCP", icon: "🚀" },
@@ -22,6 +23,7 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -104,13 +106,45 @@ export default function Header() {
             </Link>
           ))}
 
-          <Link
-            href="/get-started"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
-            onClick={() => setMenuOpen(false)}
-          >
-            Get Started
-          </Link>
+          <div className="flex items-center gap-3 max-md:flex-col max-md:w-full">
+            {session?.user ? (
+              <Link
+                href="/dashboard"
+                className="flex items-center gap-2 text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
+                onClick={() => setMenuOpen(false)}
+              >
+                {session.user.image ? (
+                  <Image
+                    src={session.user.image}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className="rounded-full"
+                  />
+                ) : (
+                  <span className="w-7 h-7 rounded-full bg-n2f-accent text-black text-xs font-bold flex items-center justify-center">
+                    {session.user.name?.[0] || "U"}
+                  </span>
+                )}
+                <span className="max-md:inline hidden md:inline">{session.user.name || "Dashboard"}</span>
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+            )}
+            <Link
+              href="/get-started"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
+              onClick={() => setMenuOpen(false)}
+            >
+              Get Started
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Toggle */}
