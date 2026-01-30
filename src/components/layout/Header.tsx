@@ -131,19 +131,20 @@ export default function Header() {
                 </Link>
                 <button
                   onClick={() => { setMenuOpen(false); signOut({ callbackUrl: "/" }); }}
-                  className="text-sm text-n2f-text-muted hover:text-red-400 transition-colors duration-300 cursor-pointer max-md:w-full max-md:text-left"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-red-500 to-red-700 text-white shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_40px_rgba(239,68,68,0.4)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer max-md:w-full"
                 >
                   Logout
                 </button>
               </>
-            ) : null}
-            <Link
-              href="/login"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get Started
-            </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            )}
           </div>
         </nav>
 
