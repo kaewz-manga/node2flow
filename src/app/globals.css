@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-n2f: #0a0a0a;
+  --color-n2f-secondary: #1a1a1a;
+  --color-n2f-tertiary: #2a2a2a;
+  --color-n2f-elevated: #151518;
+  --color-n2f-accent: #ff6d5a;
+  --color-n2f-accent-dark: #e05a48;
+  --color-n2f-accent-glow: rgba(255, 109, 90, 0.4);
+  --color-n2f-accent-subtle: rgba(255, 109, 90, 0.08);
+  --color-n2f-text: #ffffff;
+  --color-n2f-text-secondary: #d1d1d1;
+  --color-n2f-text-muted: #999999;
+  --color-n2f-text-dim: #666666;
+  --color-n2f-border: rgba(255, 255, 255, 0.08);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-n2f);
+  color: var(--color-n2f-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-n2f-accent);
+  color: var(--color-n2f);
+}
+
+/* Keyframes */
+@keyframes arrowFlow {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes shineSweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
