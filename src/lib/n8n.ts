@@ -35,16 +35,39 @@ export async function createN8nUser(
     if (!res.ok) {
       const text = await res.text();
       console.error(`[n8n] Failed to create user (${res.status}): ${text}`);
+      // If user already exists, still return partial info
+      if (res.status === 400 || res.status === 409) {
+        console.log(`[n8n] User may already exist, returning partial info`);
+        return { id: "", email, error: text };
+      }
       return null;
     }
 
     const data = await res.json();
-    // n8n returns array of created users with invite URLs
-    const user = Array.isArray(data) ? data[0] : data;
+    console.log(`[n8n] Raw API response:`, JSON.stringify(data, null, 2));
+
+    // n8n returns: [{ user: { id, email, role }, error: "" }]
+    let entry: any;
+    if (Array.isArray(data)) {
+      entry = data[0];
+    } else {
+      entry = data;
+    }
+
+    // The actual user data is nested inside entry.user
+    const user = entry?.user ?? entry;
+
+    const result: N8nUserResponse = {
+      id: user?.id ?? "",
+      email: user?.email ?? email,
+      inviteAcceptUrl: user?.inviteAcceptUrl ?? undefined,
+      emailSent: user?.emailSent ?? entry?.emailSent ?? false,
+    };
+
     console.log(
-      `[n8n] Created user: ${email} (id: ${user?.id}, inviteUrl: ${user?.inviteAcceptUrl || "none"})`,
+      `[n8n] Created user: ${email} (id: ${result.id}, inviteUrl: ${result.inviteAcceptUrl || "none"})`,
     );
-    return user;
+    return result;
   } catch (err) {
     console.error("[n8n] Error creating user:", err);
     return null;

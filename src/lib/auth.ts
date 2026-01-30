@@ -61,7 +61,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .run();
       }
 
-      // Create n8n user account + send invite email
+      // Create n8n user account
       if (user.email) {
         const n8nUser = await createN8nUser(user.email);
         if (n8nUser?.id) {
@@ -73,8 +73,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             .where(eq(users.id, user.id!))
             .run();
 
-          // Send invite email with password setup link
-          if (n8nUser.inviteAcceptUrl) {
+          // If n8n didn't send the email and we have an invite URL, send it ourselves
+          if (!n8nUser.emailSent && n8nUser.inviteAcceptUrl) {
             await sendN8nInviteEmail(
               user.email,
               n8nUser.inviteAcceptUrl,
@@ -82,12 +82,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             );
           }
 
-          // Create welcome notification
+          // Create n8n notification
+          const emailNote = n8nUser.emailSent
+            ? `n8n ส่งอีเมลเชิญไปที่ ${user.email} แล้ว กรุณาตรวจสอบอีเมลเพื่อตั้งรหัสผ่าน`
+            : n8nUser.inviteAcceptUrl
+              ? `ตรวจสอบอีเมล ${user.email} สำหรับลิงก์ตั้งรหัสผ่าน`
+              : `บัญชี n8n พร้อมใช้งานแล้ว`;
           db.insert(notifications)
             .values({
               userId: user.id!,
               title: "n8n Account Created",
-              message: `ระบบสร้างบัญชี n8n ให้คุณเรียบร้อยแล้ว ตรวจสอบอีเมล ${user.email} สำหรับลิงก์ตั้งรหัสผ่าน`,
+              message: `ระบบสร้างบัญชี n8n ให้คุณเรียบร้อยแล้ว ${emailNote}`,
               type: "success",
             })
             .run();

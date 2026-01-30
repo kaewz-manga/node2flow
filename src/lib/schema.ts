@@ -1,4 +1,5 @@
 import { sqliteTable, text, integer, real, primaryKey } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
 
 // ============================================
 // Auth.js Tables (official schema)
@@ -76,7 +77,7 @@ export const products = sqliteTable("products", {
   downloadUrl: text("download_url"),
   tags: text("tags"), // JSON array
   isFree: integer("is_free").default(0),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
 
 export const servicePlans = sqliteTable("service_plans", {
@@ -101,7 +102,7 @@ export const orders = sqliteTable("orders", {
   currency: text("currency").default("THB"),
   status: text("status").default("pending"), // 'pending' | 'paid' | 'cancelled'
   stripeSessionId: text("stripe_session_id"),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
 
 export const userDownloads = sqliteTable("user_downloads", {
@@ -129,7 +130,7 @@ export const userSubscriptions = sqliteTable("user_subscriptions", {
   stripeSubscriptionId: text("stripe_subscription_id"),
   status: text("status").default("active"), // 'active' | 'cancelled' | 'expired'
   currentPeriodEnd: text("current_period_end"),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
 
 export const faqItems = sqliteTable("faq_items", {
@@ -148,7 +149,7 @@ export const blogPosts = sqliteTable("blog_posts", {
   content: text("content").notNull(), // HTML content
   tags: text("tags"), // JSON array
   publishedAt: text("published_at").notNull(),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
 
 export const notifications = sqliteTable("notifications", {
@@ -160,7 +161,7 @@ export const notifications = sqliteTable("notifications", {
   message: text("message").notNull(),
   type: text("type").default("info"), // 'info' | 'success' | 'warning'
   isRead: integer("is_read").default(0),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
 
 export const contactMessages = sqliteTable("contact_messages", {
@@ -168,5 +169,5 @@ export const contactMessages = sqliteTable("contact_messages", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   message: text("message").notNull(),
-  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
