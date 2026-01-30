@@ -1,0 +1,13 @@
+services:
+  node2flow:
+    build: .
+    container_name: node2flow-web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3333:3000"
+    env_file:
+      - .env.production
+    volumes:
+      - ./data/database.db:/app/database.db
+    environment:
+      - NODE_ENV=production

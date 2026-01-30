@@ -138,6 +138,17 @@ export const faqItems = sqliteTable("faq_items", {
   sortOrder: integer("sort_order").default(0),
 });
 
+export const blogPosts = sqliteTable("blog_posts", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  slug: text("slug").notNull().unique(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  content: text("content").notNull(), // HTML content
+  tags: text("tags"), // JSON array
+  publishedAt: text("published_at").notNull(),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
 export const contactMessages = sqliteTable("contact_messages", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
