@@ -14,6 +14,7 @@ export const users = sqliteTable("user", {
   image: text("image"),
   role: text("role").default("user"),
   n8nUserId: text("n8n_user_id"),
+  n8nInviteUrl: text("n8n_invite_url"),
 });
 
 export const accounts = sqliteTable(
@@ -147,6 +148,18 @@ export const blogPosts = sqliteTable("blog_posts", {
   content: text("content").notNull(), // HTML content
   tags: text("tags"), // JSON array
   publishedAt: text("published_at").notNull(),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const notifications = sqliteTable("notifications", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  title: text("title").notNull(),
+  message: text("message").notNull(),
+  type: text("type").default("info"), // 'info' | 'success' | 'warning'
+  isRead: integer("is_read").default(0),
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
 });
 

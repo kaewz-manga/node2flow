@@ -3,7 +3,13 @@ import Google from "next-auth/providers/google";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { eq } from "drizzle-orm";
 import { db } from "./db";
-import { users, accounts, sessions, verificationTokens } from "./schema";
+import {
+  users,
+  accounts,
+  sessions,
+  verificationTokens,
+  notifications,
+} from "./schema";
 import { createN8nUser } from "./n8n";
 import { sendN8nInviteEmail } from "./mail";
 
@@ -29,14 +35,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        // Read role from DB user record
         const dbUser = db
-          .select({ role: users.role, n8nUserId: users.n8nUserId })
+          .select({
+            role: users.role,
+            n8nUserId: users.n8nUserId,
+            n8nInviteUrl: users.n8nInviteUrl,
+          })
           .from(users)
           .where(eq(users.id, user.id))
           .get();
         (session.user as any).role = dbUser?.role || "user";
         (session.user as any).n8nUserId = dbUser?.n8nUserId || null;
+        (session.user as any).n8nInviteUrl = dbUser?.n8nInviteUrl || null;
       }
       return session;
     },
@@ -56,7 +66,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const n8nUser = await createN8nUser(user.email);
         if (n8nUser?.id) {
           db.update(users)
-            .set({ n8nUserId: n8nUser.id })
+            .set({
+              n8nUserId: n8nUser.id,
+              n8nInviteUrl: n8nUser.inviteAcceptUrl || null,
+            })
             .where(eq(users.id, user.id!))
             .run();
 
@@ -68,8 +81,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               user.name || undefined,
             );
           }
+
+          // Create welcome notification
+          db.insert(notifications)
+            .values({
+              userId: user.id!,
+              title: "n8n Account Created",
+              message: `ระบบสร้างบัญชี n8n ให้คุณเรียบร้อยแล้ว ตรวจสอบอีเมล ${user.email} สำหรับลิงก์ตั้งรหัสผ่าน`,
+              type: "success",
+            })
+            .run();
         }
       }
+
+      // Welcome notification
+      db.insert(notifications)
+        .values({
+          userId: user.id!,
+          title: "Welcome to Node2Flow!",
+          message: `ยินดีต้อนรับสู่ Node2Flow MCP Platform คุณสามารถใช้งาน MCP Server เพื่อเชื่อมต่อ AI กับ n8n Workflow Automation`,
+          type: "info",
+        })
+        .run();
     },
   },
 });

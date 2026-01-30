@@ -1,5 +1,6 @@
 import { db } from "./db";
-import { blogPosts, products, servicePlans, faqItems } from "./schema";
+import { blogPosts, products, servicePlans, faqItems, notifications } from "./schema";
+import { and } from "drizzle-orm";
 import { eq, desc, asc } from "drizzle-orm";
 
 // --- Blog ---
@@ -32,4 +33,29 @@ export function getAllPlans() {
 // --- FAQ ---
 export function getAllFaqs() {
   return db.select().from(faqItems).orderBy(asc(faqItems.sortOrder)).all();
+}
+
+// --- Notifications ---
+export function getUserNotifications(userId: string) {
+  return db
+    .select()
+    .from(notifications)
+    .where(eq(notifications.userId, userId))
+    .orderBy(desc(notifications.createdAt))
+    .all();
+}
+
+export function deleteNotification(id: number, userId: string) {
+  return db
+    .delete(notifications)
+    .where(and(eq(notifications.id, id), eq(notifications.userId, userId)))
+    .run();
+}
+
+export function markNotificationRead(id: number, userId: string) {
+  return db
+    .update(notifications)
+    .set({ isRead: 1 })
+    .where(and(eq(notifications.id, id), eq(notifications.userId, userId)))
+    .run();
 }
