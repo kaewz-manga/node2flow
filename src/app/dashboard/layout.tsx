@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import LogoutButton from "@/components/LogoutButton";
 
 const sidebarLinks = [
   { href: "/dashboard", label: "Dashboard", icon: "📊" },
@@ -62,6 +63,9 @@ export default async function DashboardLayout({
                   {link.label}
                 </Link>
               ))}
+              <div className="border-t border-n2f-border mt-1 pt-1">
+                <LogoutButton />
+              </div>
             </nav>
           </aside>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const services = [
   { href: "/services/install", label: "รับติดตั้ง n8n-MCP", icon: "🚀" },
@@ -108,26 +108,34 @@ export default function Header() {
 
           <div className="flex items-center gap-3 max-md:flex-col max-md:w-full">
             {session?.user ? (
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-2 text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                {session.user.image ? (
-                  <Image
-                    src={session.user.image}
-                    alt=""
-                    width={28}
-                    height={28}
-                    className="rounded-full"
-                  />
-                ) : (
-                  <span className="w-7 h-7 rounded-full bg-n2f-accent text-black text-xs font-bold flex items-center justify-center">
-                    {session.user.name?.[0] || "U"}
-                  </span>
-                )}
-                <span className="max-md:inline hidden md:inline">{session.user.name || "Dashboard"}</span>
-              </Link>
+              <>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {session.user.image ? (
+                    <Image
+                      src={session.user.image}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="rounded-full"
+                    />
+                  ) : (
+                    <span className="w-7 h-7 rounded-full bg-n2f-accent text-black text-xs font-bold flex items-center justify-center">
+                      {session.user.name?.[0] || "U"}
+                    </span>
+                  )}
+                  <span className="max-md:inline hidden md:inline">{session.user.name || "Dashboard"}</span>
+                </Link>
+                <button
+                  onClick={() => { setMenuOpen(false); signOut({ callbackUrl: "/" }); }}
+                  className="text-sm text-n2f-text-muted hover:text-red-400 transition-colors duration-300 cursor-pointer max-md:w-full max-md:text-left"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <Link
                 href="/login"
