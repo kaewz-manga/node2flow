@@ -1,46 +1,49 @@
 import FadeIn from "@/components/ui/FadeIn";
-
-const steps = [
-  {
-    number: 1,
-    title: (
-      <>
-        เพิ่มเพื่อน{" "}
-        <a href="https://t.me/node2flow_bot" target="_blank" rel="noopener" className="text-n2f-accent hover:underline transition-colors">
-          Telegram
-        </a>{" "}
-        หรือ{" "}
-        <a href="https://line.me/R/ti/p/@990pvvzg" target="_blank" rel="noopener" className="text-n2f-accent hover:underline transition-colors">
-          LINE Bot
-        </a>
-      </>
-    ),
-    desc: "เลือกช่องทางที่สะดวก แล้วเพิ่ม Bot เป็นเพื่อน",
-  },
-  {
-    number: 2,
-    title: "กดรับแบบฟอร์มและกรอก Email",
-    desc: "Bot จะส่งแบบฟอร์มให้ กรอก Email เพื่อรับลิงก์สมัคร",
-  },
-  {
-    number: 3,
-    title: "รับลิงก์สมัครทาง Email",
-    desc: "ลิงก์สมัคร Member จะส่งเข้า Email ทันที",
-  },
-  {
-    number: 4,
-    title: "สมัคร Account ผ่าน Link",
-    desc: "กดลิงก์จาก Email เพื่อสร้าง Account และเริ่มใช้งานได้เลย",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function HowItWorks() {
+  const t = useTranslations("howItWorks");
+
+  const steps = [
+    {
+      number: 1,
+      title: t.rich("step1Title", {
+        telegram: (chunks) => (
+          <a href="https://t.me/node2flow_bot" target="_blank" rel="noopener" className="text-n2f-accent hover:underline transition-colors">
+            {chunks}
+          </a>
+        ),
+        line: (chunks) => (
+          <a href="https://line.me/R/ti/p/@990pvvzg" target="_blank" rel="noopener" className="text-n2f-accent hover:underline transition-colors">
+            {chunks}
+          </a>
+        ),
+      }),
+      desc: t("step1Desc"),
+    },
+    {
+      number: 2,
+      title: t("step2Title"),
+      desc: t("step2Desc"),
+    },
+    {
+      number: 3,
+      title: t("step3Title"),
+      desc: t("step3Desc"),
+    },
+    {
+      number: 4,
+      title: t("step4Title"),
+      desc: t("step4Desc"),
+    },
+  ];
+
   return (
     <section className="py-28 max-md:py-16 bg-n2f" id="how-it-works">
       <div className="w-full max-w-[800px] mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text">
-            ขั้นตอนการสมัครสมาชิก
+          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text drop-shadow-[0_0_20px_rgba(255,109,90,0.5)]">
+            {t("title")}
           </h2>
         </FadeIn>
 

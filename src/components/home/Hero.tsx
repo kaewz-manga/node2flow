@@ -1,14 +1,17 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Cpu, ArrowRight, Shield, ArrowUpRight } from "lucide-react";
-
-const badges = [
-  { icon: Cpu, label: "32 MCP Tools" },
-  { icon: Shield, label: "99.9% Uptime" },
-  { icon: ArrowUpRight, label: "Free Tier" },
-];
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("hero");
+
+  const badges = [
+    { icon: Cpu, label: t("tools") },
+    { icon: Shield, label: t("uptime") },
+    { icon: ArrowUpRight, label: t("freeTier") },
+  ];
+
   return (
     <section className="relative overflow-hidden pt-[calc(80px+100px)] pb-36 max-md:pt-[calc(48px+70px)] max-md:pb-24">
       {/* Multi-layer background */}
@@ -29,13 +32,13 @@ export default function Hero() {
               alt="Node2Flow"
               width={72}
               height={72}
-              className="rounded-2xl shadow-[0_0_40px_rgba(255,109,90,0.15)]"
+              className="rounded-2xl shadow-[0_0_50px_rgba(255,109,90,0.3),0_0_100px_rgba(255,109,90,0.1)]"
             />
           </div>
 
           {/* Animated badge */}
           <span className="inline-block px-4 py-1.5 text-xs font-medium tracking-[2px] uppercase text-n2f-accent border border-n2f-accent/25 rounded-full bg-n2f-accent/[0.08] mt-8 mb-10 shadow-[0_0_20px_rgba(255,109,90,0.08)] animate-[glow-pulse_3s_ease-in-out_infinite]">
-            MCP Server Platform
+            {t("badge")}
           </span>
 
           {/* Gradient animated heading */}
@@ -43,17 +46,18 @@ export default function Hero() {
             className="text-[72px] max-md:text-5xl max-[480px]:text-[32px] font-bold leading-[1.05] mb-5 bg-clip-text text-transparent"
             style={{
               backgroundImage: "linear-gradient(180deg, #ededed 0%, #a1a1a6 60%, #71717a 100%)",
+              filter: "drop-shadow(0 0 30px rgba(255,109,90,0.25))",
             }}
           >
-            Node2Flow
+            {t("title")}
           </h1>
 
-          <p className="text-xl max-md:text-lg text-n2f-text-secondary mb-2 font-medium">
-            Connect your AI to any service
+          <p className="text-xl max-md:text-lg text-n2f-text mb-2 font-medium">
+            {t("subtitle")}
           </p>
 
           <p className="text-base text-n2f-text-muted mb-12 max-w-md">
-            Ready-to-use MCP Servers. No installation needed.
+            {t("desc")}
           </p>
 
           {/* Buttons with hover effects */}
@@ -62,14 +66,14 @@ export default function Hero() {
               href="/login"
               className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_30px_rgba(255,109,90,0.3)] transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
-              Get Started Free
+              {t("cta")}
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="/#services"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-xl bg-white/[0.04] text-n2f-text-secondary border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] hover:text-n2f-text transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
-              Explore Services
+              {t("explore")}
             </Link>
           </div>
 

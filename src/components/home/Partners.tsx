@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const partners = [
   { src: "/images/partners/claude.png", alt: "Claude" },
@@ -12,6 +13,8 @@ const partners = [
 ];
 
 export default function Partners() {
+  const t = useTranslations("partners");
+
   return (
     <section className="relative py-12 bg-n2f overflow-hidden">
       {/* Gradient top/bottom borders */}
@@ -20,7 +23,7 @@ export default function Partners() {
 
       <div className="w-full max-w-[1200px] mx-auto px-6">
         <p className="text-center text-xs text-n2f-text-dim mb-8 tracking-[2px] uppercase font-medium">
-          Works with
+          {t("label")}
         </p>
       </div>
 

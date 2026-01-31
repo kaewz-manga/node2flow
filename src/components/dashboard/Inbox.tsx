@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 interface Notification {
   id: number;
@@ -24,6 +25,7 @@ const typeDots: Record<string, string> = {
 };
 
 export default function Inbox() {
+  const t = useTranslations("dashboard");
   const [items, setItems] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -60,7 +62,7 @@ export default function Inbox() {
   if (loading) {
     return (
       <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
-        <p className="text-sm text-n2f-text-muted">Loading...</p>
+        <p className="text-sm text-n2f-text-muted">{t("loading")}</p>
       </div>
     );
   }
@@ -69,7 +71,7 @@ export default function Inbox() {
     <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-          Inbox
+          {t("inbox")}
           {items.filter((n) => !n.is_read).length > 0 && (
             <span className="text-xs bg-n2f-accent text-black font-bold px-2 py-0.5 rounded-full">
               {items.filter((n) => !n.is_read).length}
@@ -79,7 +81,7 @@ export default function Inbox() {
       </div>
 
       {items.length === 0 ? (
-        <p className="text-sm text-n2f-text-dim">No notifications</p>
+        <p className="text-sm text-n2f-text-dim">{t("noNotifications")}</p>
       ) : (
         <div className="space-y-3">
           {items.map((n) => (
@@ -113,7 +115,7 @@ export default function Inbox() {
                       className="text-xs text-n2f-text-muted hover:text-white px-2 py-1 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                       title="Mark as read"
                     >
-                      Read
+                      {t("markRead")}
                     </button>
                   )}
                   <button
@@ -121,7 +123,7 @@ export default function Inbox() {
                     className="text-xs text-red-400/70 hover:text-red-400 px-2 py-1 rounded-lg hover:bg-red-500/10 transition-colors cursor-pointer"
                     title="Delete"
                   >
-                    Delete
+                    {t("delete")}
                   </button>
                 </div>
               </div>

@@ -1,13 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
-const quickLinks = [
-  { href: "/#services", label: "Services" },
-  { href: "/products/mcp", label: "Products" },
-  { href: "/shop", label: "Shop" },
-  { href: "/docs", label: "Documentation" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About Us" },
+const quickLinkData = [
+  { href: "/#services", key: "services" },
+  { href: "/products/mcp", key: "products" },
+  { href: "/shop", key: "shop" },
+  { href: "/docs", key: "documentation" },
+  { href: "/blog", key: "blog" },
+  { href: "/about", key: "aboutUs" },
 ];
 
 const contactLinks = [
@@ -44,6 +45,23 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
+
+  const labelMap: Record<string, string> = {
+    services: tNav("services"),
+    products: t("products"),
+    shop: tNav("shop"),
+    documentation: t("documentation"),
+    blog: tNav("blog"),
+    aboutUs: t("aboutUs"),
+  };
+
+  const quickLinks = quickLinkData.map((link) => ({
+    href: link.href,
+    label: labelMap[link.key] || link.key,
+  }));
+
   return (
     <footer className="bg-[#050508] pt-20" id="contact">
       <div className="w-full max-w-[1200px] mx-auto px-6">
@@ -59,11 +77,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-medium text-n2f-text mb-5">Quick Links</h4>
+            <h4 className="text-sm font-medium text-n2f-text mb-5">{t("quickLinks")}</h4>
             <ul className="flex flex-col gap-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-n2f-text-muted hover:text-n2f-text transition-colors duration-200">
+                  <Link href={link.href as any} className="text-sm text-n2f-text-muted hover:text-n2f-text transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -73,7 +91,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-medium text-n2f-text mb-5">Contact</h4>
+            <h4 className="text-sm font-medium text-n2f-text mb-5">{t("contact")}</h4>
             <ul className="flex flex-col gap-3">
               {contactLinks.map((link) => (
                 <li key={link.href}>
@@ -92,7 +110,7 @@ export default function Footer() {
 
           {/* Follow Us */}
           <div>
-            <h4 className="text-sm font-medium text-n2f-text mb-5">Follow Us</h4>
+            <h4 className="text-sm font-medium text-n2f-text mb-5">{t("followUs")}</h4>
             <ul className="flex flex-col gap-3">
               {socialLinks.map((link) => (
                 <li key={link.href}>
@@ -113,9 +131,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex items-center justify-between mt-14 py-6 border-t border-n2f-border max-[480px]:flex-col max-[480px]:gap-3 max-[480px]:text-center">
-          <p className="text-xs text-n2f-text-dim">&copy; 2026 Node2Flow. All rights reserved.</p>
+          <p className="text-xs text-n2f-text-dim">{t("rights")}</p>
           <Link href="/privacy" className="text-xs text-n2f-text-dim hover:text-n2f-text transition-colors duration-200">
-            Privacy Policy
+            {t("privacy")}
           </Link>
         </div>
       </div>

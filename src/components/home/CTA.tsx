@@ -1,8 +1,11 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
+import { useTranslations } from "next-intl";
 
 export default function CTA() {
+  const t = useTranslations("cta");
+
   return (
     <section className="relative py-36 max-md:py-24 text-center overflow-hidden" id="cta">
       {/* Multi-layer background */}
@@ -18,15 +21,15 @@ export default function CTA() {
               backgroundImage: "linear-gradient(180deg, #ededed 0%, #a1a1a6 80%)",
             }}
           >
-            พร้อมเริ่มต้นหรือยัง?
+            {t("title")}
           </h2>
-          <p className="text-n2f-text-muted text-lg mb-12">เริ่มต้นฟรี ไม่มีค่าใช้จ่าย</p>
+          <p className="text-n2f-text-muted text-lg mb-12">{t("subtitle")}</p>
           <div className="flex justify-center">
             <Link
               href="/login"
               className="group inline-flex items-center justify-center gap-2.5 px-12 py-4 text-lg font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_40px_rgba(255,109,90,0.3)] transition-all duration-300"
             >
-              Get Started Free
+              {t("button")}
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

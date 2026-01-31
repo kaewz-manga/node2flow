@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface BuyButtonProps {
   productName: string;
@@ -17,6 +18,7 @@ export default function BuyButton({
   isFree,
   mode,
 }: BuyButtonProps) {
+  const t = useTranslations("shop");
   const [loading, setLoading] = useState(false);
 
   async function handleClick() {
@@ -55,7 +57,7 @@ export default function BuyButton({
           : "bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-white hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)]"
       }`}
     >
-      {loading ? "..." : isFree ? "Download" : "Buy"}
+      {loading ? "..." : isFree ? t("download") : t("buy")}
     </button>
   );
 }
