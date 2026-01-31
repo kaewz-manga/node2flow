@@ -153,11 +153,11 @@ export default function MCPProductPage() {
             <h2 className="text-2xl font-bold text-n2f-text mb-8">{t("packages")}</h2>
             <div className="grid grid-cols-4 gap-3 max-md:grid-cols-2 max-[480px]:grid-cols-1">
               {plans.map((plan) => {
-                const isFree = plan.name === "Free";
-                const isPaid = !isFree;
+                const isActive = plan.name === "Free" || plan.name === "Starter";
+                const isComingSoon = !isActive;
                 return (
-                <div key={plan.name} className={`relative flex flex-col bg-n2f-secondary border rounded-xl p-5 text-center ${plan.popular ? "border-n2f-accent/40" : "border-n2f-border"} ${isPaid ? "opacity-60" : ""}`}>
-                  {isPaid && (
+                <div key={plan.name} className={`relative flex flex-col bg-n2f-secondary border rounded-xl p-5 text-center ${plan.popular ? "border-n2f-accent/40" : "border-n2f-border"} ${isComingSoon ? "opacity-60" : ""}`}>
+                  {isComingSoon && (
                     <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-black/30 backdrop-blur-[1px]">
                       <span className="px-3 py-1 text-xs font-medium tracking-[1.5px] uppercase text-n2f-text border border-n2f-border rounded-md bg-n2f-secondary/80">
                         Coming Soon
@@ -165,8 +165,8 @@ export default function MCPProductPage() {
                     </div>
                   )}
                   <h3 className="text-base font-bold text-n2f-text mb-1">{plan.name}</h3>
-                  {isFree ? (
-                    <p className="text-2xl font-bold text-green-500 mb-0.5">{plan.price}</p>
+                  {isActive ? (
+                    <p className="text-2xl font-bold text-green-500 mb-0.5">Free</p>
                   ) : (
                     <p className="text-2xl font-bold text-n2f-text-muted mb-0.5">—</p>
                   )}
@@ -174,7 +174,7 @@ export default function MCPProductPage() {
                     <p>{plan.requests} {t("requestsPerMonth")}</p>
                     <p>{plan.connections} {t("connections")}</p>
                   </div>
-                  {isFree && (
+                  {isActive && (
                   <a
                     href={DASHBOARD_URL}
                     target="_blank"
