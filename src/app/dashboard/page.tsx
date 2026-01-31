@@ -11,12 +11,12 @@ export default async function DashboardPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold text-white mb-6">Dashboard</h1>
+      <h1 className="text-2xl font-bold text-n2f-text mb-6">Dashboard</h1>
 
       {/* n8n Account Info */}
       {hasN8n && (
-        <div className="bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/20 rounded-2xl p-6 mb-6">
-          <h2 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+        <div className="bg-green-500/[0.06] border border-green-500/15 rounded-xl p-6 mb-6">
+          <h2 className="text-lg font-semibold text-n2f-text mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500" />
             n8n Account Created
           </h2>
@@ -27,7 +27,7 @@ export default async function DashboardPage() {
               : " ตรวจสอบอีเมลสำหรับลิงก์ตั้งรหัสผ่าน"}
           </p>
 
-          <div className="bg-white/5 rounded-xl p-4 mb-4 space-y-2">
+          <div className="bg-n2f-secondary/50 rounded-lg p-4 mb-4 space-y-2">
             <div className="flex items-start gap-3">
               <span className="text-xs text-n2f-text-dim w-16 shrink-0 pt-0.5">URL</span>
               <span className="text-sm text-n2f-text-secondary break-all">{N8N_URL}</span>
@@ -48,7 +48,7 @@ export default async function DashboardPage() {
                 href={inviteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
               >
                 ตั้งรหัสผ่าน n8n
               </a>
@@ -57,7 +57,7 @@ export default async function DashboardPage() {
                 href={N8N_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
               >
                 เปิด n8n
               </a>
@@ -67,18 +67,18 @@ export default async function DashboardPage() {
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1 mb-6">
-        <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
+      <div className="grid grid-cols-3 gap-3 max-md:grid-cols-1 mb-6">
+        <div className="bg-n2f-secondary border border-n2f-border rounded-xl p-5">
           <p className="text-sm text-n2f-text-muted mb-1">Orders</p>
-          <p className="text-3xl font-extrabold text-white">0</p>
+          <p className="text-3xl font-bold text-n2f-text">0</p>
         </div>
-        <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
+        <div className="bg-n2f-secondary border border-n2f-border rounded-xl p-5">
           <p className="text-sm text-n2f-text-muted mb-1">Downloads</p>
-          <p className="text-3xl font-extrabold text-white">0</p>
+          <p className="text-3xl font-bold text-n2f-text">0</p>
         </div>
-        <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
+        <div className="bg-n2f-secondary border border-n2f-border rounded-xl p-5">
           <p className="text-sm text-n2f-text-muted mb-1">Subscription</p>
-          <p className="text-3xl font-extrabold text-n2f-text-muted">None</p>
+          <p className="text-3xl font-bold text-n2f-text-muted">None</p>
         </div>
       </div>
 
@@ -88,8 +88,8 @@ export default async function DashboardPage() {
       </div>
 
       {/* Platform Info */}
-      <div className="bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6">
-        <h2 className="text-lg font-semibold text-white mb-3">
+      <div className="bg-n2f-secondary border border-n2f-border rounded-xl p-6">
+        <h2 className="text-lg font-semibold text-n2f-text mb-3">
           Node2Flow MCP Platform
         </h2>
         <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">
@@ -99,7 +99,7 @@ export default async function DashboardPage() {
         </p>
         <a
           href="/docs"
-          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border border-white/20 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300"
+          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200"
         >
           Documentation
         </a>

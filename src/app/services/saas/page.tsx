@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Check } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
   title: "SaaS n8n-MCP - Node2Flow",
@@ -61,125 +63,137 @@ const benefits = [
 
 export default function SaaSPage() {
   return (
-    <main className="relative overflow-hidden pt-[calc(80px+60px)] bg-n2f">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[url('/images/partners/mcp-icon.png')] bg-center bg-contain bg-no-repeat opacity-[0.025] pointer-events-none" />
-
-      <div className="w-full max-w-[800px] mx-auto px-6 relative z-[1]">
+    <main className="pt-[calc(80px+80px)] pb-20 bg-n2f">
+      <div className="w-full max-w-[800px] mx-auto px-6">
         {/* Hero */}
-        <div className="text-center pb-14 border-b border-n2f-border mb-14">
-          <span className="inline-block px-3.5 py-1 text-xs font-semibold tracking-[2px] uppercase text-n2f-accent border border-n2f-accent/30 rounded-full bg-n2f-accent/[0.08] mb-6">
-            Cloud Service
-          </span>
-          <h1 className="text-[56px] max-md:text-4xl font-extrabold text-white mb-4">SaaS n8n-MCP</h1>
-          <p className="text-lg text-n2f-text-secondary max-w-[600px] mx-auto leading-[1.7] mb-8">
-            สมัครรับ MCP URL ใช้งานได้ทันที ไม่ต้องติดตั้ง ไม่ต้องมี server เชื่อมต่อ AI กับ n8n ได้เลย
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a
-              href={DASHBOARD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300"
-            >
-              สมัครใช้งาน
-            </a>
-            <Link href="/products/mcp" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg border-2 border-white/30 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300">
-              ดูรายละเอียด Product
-            </Link>
+        <FadeIn>
+          <div className="text-center pb-16 border-b border-n2f-border mb-16">
+            <span className="inline-block px-3.5 py-1.5 text-xs font-medium tracking-[2px] uppercase text-n2f-accent border border-n2f-accent/20 rounded-full bg-n2f-accent/[0.06] mb-8">
+              Cloud Service
+            </span>
+            <h1 className="text-5xl max-md:text-4xl font-bold text-n2f-text mb-4">SaaS n8n-MCP</h1>
+            <p className="text-lg text-n2f-text-secondary max-w-[600px] mx-auto leading-relaxed mb-8">
+              สมัครรับ MCP URL ใช้งานได้ทันที ไม่ต้องติดตั้ง ไม่ต้องมี server เชื่อมต่อ AI กับ n8n ได้เลย
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a
+                href={DASHBOARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
+              >
+                สมัครใช้งาน
+              </a>
+              <Link href="/products/mcp" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200">
+                ดูรายละเอียด Product
+              </Link>
+            </div>
           </div>
-        </div>
+        </FadeIn>
 
         {/* คืออะไร */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-extrabold text-n2f-accent mb-6">SaaS n8n-MCP คืออะไร?</h2>
-          <p className="text-n2f-text-secondary leading-[1.8]">
-            เราให้บริการ MCP Server แบบ Cloud สมัครแล้วได้ URL + API Key
-            เอาไปใส่ใน Claude Desktop, Cursor, Windsurf หรือ n8n ได้เลย
-            ไม่ต้องติดตั้งอะไร ไม่ต้องมี server ของตัวเอง
-          </p>
-        </section>
+        <FadeIn delay={100}>
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-n2f-text mb-4">SaaS n8n-MCP คืออะไร?</h2>
+            <p className="text-n2f-text-secondary leading-relaxed">
+              เราให้บริการ MCP Server แบบ Cloud สมัครแล้วได้ URL + API Key
+              เอาไปใส่ใน Claude Desktop, Cursor, Windsurf หรือ n8n ได้เลย
+              ไม่ต้องติดตั้งอะไร ไม่ต้องมี server ของตัวเอง
+            </p>
+          </section>
+        </FadeIn>
 
         {/* วิธีใช้งาน */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-extrabold text-n2f-accent mb-6">วิธีเริ่มใช้งาน</h2>
-          <ol className="space-y-0">
-            {howSteps.map((step, i) => (
-              <li key={i} className="relative pl-10 py-2.5 text-sm text-n2f-text-secondary border-b border-white/[0.04] last:border-0 leading-relaxed">
-                <span className="absolute left-0 top-2 w-7 h-7 flex items-center justify-center bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black text-[13px] font-bold rounded-full">
-                  {i + 1}
-                </span>
-                <strong className="text-white">{step.title}</strong> — {step.desc}
-              </li>
-            ))}
-          </ol>
-        </section>
+        <FadeIn delay={150}>
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-n2f-text mb-6">วิธีเริ่มใช้งาน</h2>
+            <ol className="space-y-0">
+              {howSteps.map((step, i) => (
+                <li key={i} className="relative pl-12 py-3 text-sm text-n2f-text-secondary border-b border-n2f-border last:border-0 leading-relaxed">
+                  <span className="absolute left-0 top-2 w-8 h-8 flex items-center justify-center bg-n2f-accent text-black text-sm font-bold rounded-full">
+                    {i + 1}
+                  </span>
+                  <strong className="text-n2f-text">{step.title}</strong> — {step.desc}
+                </li>
+              ))}
+            </ol>
+          </section>
+        </FadeIn>
 
         {/* สิ่งที่ได้รับ */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-extrabold text-n2f-accent mb-6">สิ่งที่ได้รับ</h2>
-          <ul className="space-y-0">
-            {benefits.map((b, i) => (
-              <li key={i} className="relative pl-6 py-2 text-sm text-n2f-text-secondary border-b border-white/[0.04] last:border-0 leading-relaxed before:content-['✓'] before:absolute before:left-0 before:text-n2f-accent before:font-bold">
-                {b}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <FadeIn delay={200}>
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-n2f-text mb-6">สิ่งที่ได้รับ</h2>
+            <ul className="space-y-0">
+              {benefits.map((b, i) => (
+                <li key={i} className="flex items-start gap-3 py-3 text-sm text-n2f-text-secondary border-b border-n2f-border last:border-0 leading-relaxed">
+                  <Check className="w-4 h-4 text-n2f-accent shrink-0 mt-0.5" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </FadeIn>
 
         {/* Pricing */}
-        <section className="mb-14">
-          <h2 className="text-2xl font-extrabold text-n2f-accent mb-6">แพ็คเกจ</h2>
-          <div className="grid grid-cols-4 gap-4 max-md:grid-cols-2 max-[480px]:grid-cols-1">
-            {plans.map((plan) => (
-              <div key={plan.name} className={`relative flex flex-col bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border rounded-2xl p-5 text-center ${plan.popular ? "border-n2f-accent shadow-[0_0_20px_var(--color-n2f-accent-glow)]" : "border-n2f-border"}`}>
-                {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 bg-n2f-accent text-black text-xs font-bold rounded-lg">
-                    แนะนำ
-                  </span>
-                )}
-                <h3 className="text-base font-extrabold text-white mb-1">{plan.name}</h3>
-                <p className="text-2xl font-extrabold text-n2f-accent mb-1">
-                  {plan.price}<span className="text-xs text-n2f-text-muted font-normal">{plan.period}</span>
-                </p>
-                <p className="text-xs text-n2f-text-muted mb-4">{plan.desc}</p>
-                <ul className="text-left flex-1 mb-4">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="relative pl-5 py-0.5 text-xs text-n2f-text-muted before:content-['✓'] before:absolute before:left-0 before:text-n2f-accent before:font-bold">
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={DASHBOARD_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] transition-all duration-300"
-                >
-                  เริ่มใช้งาน
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
+        <FadeIn delay={250}>
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-n2f-text mb-8">แพ็คเกจ</h2>
+            <div className="grid grid-cols-4 gap-3 max-md:grid-cols-2 max-[480px]:grid-cols-1">
+              {plans.map((plan) => (
+                <div key={plan.name} className={`relative flex flex-col bg-n2f-secondary border rounded-xl p-5 text-center ${plan.popular ? "border-n2f-accent/40" : "border-n2f-border"}`}>
+                  {plan.popular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-n2f-accent text-black text-xs font-bold rounded-md">
+                      แนะนำ
+                    </span>
+                  )}
+                  <h3 className="text-base font-bold text-n2f-text mb-1">{plan.name}</h3>
+                  <p className="text-2xl font-bold text-n2f-accent mb-1">
+                    {plan.price}<span className="text-xs text-n2f-text-muted font-normal">{plan.period}</span>
+                  </p>
+                  <p className="text-xs text-n2f-text-muted mb-4">{plan.desc}</p>
+                  <ul className="text-left flex-1 mb-4 space-y-1">
+                    {plan.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-n2f-text-muted">
+                        <Check className="w-3 h-3 text-n2f-accent shrink-0 mt-0.5" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={DASHBOARD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center justify-center px-4 py-2 text-xs font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
+                  >
+                    เริ่มใช้งาน
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+        </FadeIn>
 
         {/* CTA */}
-        <div className="text-center py-12 border-t border-n2f-border">
-          <h2 className="text-2xl font-extrabold text-white mb-2">พร้อมเริ่มต้น?</h2>
-          <p className="text-n2f-text-muted mb-6">สมัครฟรี ทดลอง 100 requests/เดือน</p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a
-              href={DASHBOARD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300"
-            >
-              เข้า Dashboard
-            </a>
-            <Link href="/services/private" className="inline-flex items-center gap-2 px-8 py-3 font-semibold rounded-lg border-2 border-white/30 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300">
-              ดูแบบ Private
-            </Link>
+        <FadeIn delay={300}>
+          <div className="text-center py-14 border-t border-n2f-border">
+            <h2 className="text-2xl font-bold text-n2f-text mb-3">พร้อมเริ่มต้น?</h2>
+            <p className="text-n2f-text-muted mb-8">สมัครฟรี ทดลอง 100 requests/เดือน</p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a
+                href={DASHBOARD_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
+              >
+                เข้า Dashboard
+              </a>
+              <Link href="/services/private" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200">
+                ดูแบบ Private
+              </Link>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </main>
   );

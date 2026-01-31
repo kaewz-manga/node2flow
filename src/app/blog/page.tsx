@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/queries";
+import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
   title: "Blog - Node2Flow",
@@ -11,37 +12,38 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="relative overflow-hidden pt-[calc(80px+60px)] pb-20 bg-n2f">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[url('/images/partners/mcp-icon.png')] bg-center bg-contain bg-no-repeat opacity-[0.025] pointer-events-none" />
+    <main className="pt-[calc(80px+80px)] pb-20 bg-n2f">
+      <div className="w-full max-w-[800px] mx-auto px-6">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h1 className="text-5xl max-md:text-4xl font-bold text-n2f-text mb-3">Blog</h1>
+            <p className="text-lg text-n2f-text-secondary">
+              บทความเกี่ยวกับ MCP, n8n, AI Automation และ Workflow
+            </p>
+          </div>
+        </FadeIn>
 
-      <div className="w-full max-w-[800px] mx-auto px-6 relative z-[1]">
-        <div className="text-center mb-14">
-          <h1 className="text-[56px] max-md:text-4xl font-extrabold text-white mb-2">Blog</h1>
-          <p className="text-lg text-n2f-text-secondary">
-            บทความเกี่ยวกับ MCP, n8n, AI Automation และ Workflow
-          </p>
-        </div>
-
-        <div className="space-y-6">
-          {posts.map((post) => {
+        <div className="space-y-4">
+          {posts.map((post, i) => {
             const tags: string[] = post.tags ? JSON.parse(post.tags) : [];
             return (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="block bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-8 hover:border-n2f-accent hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:-translate-y-1 transition-all duration-300 group"
-              >
-                <p className="text-xs text-n2f-text-dim mb-3">{post.publishedAt}</p>
-                <h2 className="text-xl font-semibold text-white mb-3 group-hover:text-n2f-accent transition-colors">{post.title}</h2>
-                <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">{post.description}</p>
-                <div className="flex gap-2">
-                  {tags.map((tag) => (
-                    <span key={tag} className="text-xs text-n2f-accent bg-n2f-accent/[0.08] border border-n2f-accent/20 px-2.5 py-0.5 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
+              <FadeIn key={post.slug} delay={i * 80}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="block bg-n2f-secondary border border-n2f-border rounded-xl p-8 hover:border-n2f-border-hover transition-colors duration-200 group"
+                >
+                  <p className="text-xs text-n2f-text-dim mb-3">{post.publishedAt}</p>
+                  <h2 className="text-xl font-semibold text-n2f-text mb-3 group-hover:text-n2f-accent transition-colors duration-200">{post.title}</h2>
+                  <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">{post.description}</p>
+                  <div className="flex gap-2">
+                    {tags.map((tag) => (
+                      <span key={tag} className="text-xs text-n2f-accent bg-n2f-accent/[0.06] border border-n2f-accent/15 px-2.5 py-0.5 rounded-md">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </FadeIn>
             );
           })}
         </div>

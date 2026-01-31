@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { Rocket, Lock, Cloud, LayoutGrid } from "lucide-react";
 
 const services = [
-  { href: "/services/install", label: "รับติดตั้ง n8n-MCP", icon: "🚀" },
-  { href: "/services/private", label: "Private MCP Server", icon: "🔒" },
-  { href: "/services/saas", label: "SaaS n8n-MCP", icon: "☁️" },
-  { href: "/#services", label: "ดูบริการทั้งหมด", icon: "📋" },
+  { href: "/services/install", label: "รับติดตั้ง n8n-MCP", icon: Rocket },
+  { href: "/services/private", label: "Private MCP Server", icon: Lock },
+  { href: "/services/saas", label: "SaaS n8n-MCP", icon: Cloud },
+  { href: "/#services", label: "ดูบริการทั้งหมด", icon: LayoutGrid },
 ];
 
 const navLinks = [
@@ -33,15 +34,15 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-4 backdrop-blur-[12px] border-b transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+      className={`fixed top-0 left-0 right-0 z-50 py-4 backdrop-blur-xl border-b transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(10,10,10,0.95)] border-n2f-border"
-          : "bg-[rgba(10,10,10,0.6)] border-transparent"
+          ? "bg-n2f/90 border-n2f-border"
+          : "bg-n2f/60 border-transparent"
       }`}
     >
-      <div className="w-full max-w-[1100px] mx-auto px-6 flex items-center justify-between">
+      <div className="w-full max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 text-lg font-extrabold text-white hover:text-white">
+        <Link href="/" className="flex items-center gap-2.5 text-lg font-bold text-n2f-text hover:text-n2f-text">
           <Image src="/images/logo.jpg" alt="Node2Flow" width={32} height={32} className="rounded-lg" />
           <span>Node2Flow</span>
         </Link>
@@ -51,10 +52,10 @@ export default function Header() {
           className={`
             flex items-center gap-6
             max-md:fixed max-md:top-0 max-md:w-[280px] max-md:h-screen
-            max-md:bg-n2f-secondary max-md:flex-col max-md:items-start
+            max-md:bg-n2f/95 max-md:backdrop-blur-2xl max-md:flex-col max-md:items-start
             max-md:pt-20 max-md:px-8 max-md:pb-8 max-md:gap-6
             max-md:border-l max-md:border-n2f-border
-            max-md:transition-[right] max-md:duration-300 max-md:ease-[cubic-bezier(0.4,0,0.2,1)]
+            max-md:transition-[right] max-md:duration-300
             ${menuOpen ? "max-md:right-0" : "max-md:right-[-100%]"}
           `}
         >
@@ -62,10 +63,10 @@ export default function Header() {
           <div className="relative group max-md:w-full">
             <Link
               href="/#services"
-              className="text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
+              className="text-sm text-n2f-text-muted hover:text-n2f-text transition-colors duration-200"
             >
               Services{" "}
-              <span className="text-[10px] transition-transform duration-300 group-hover:inline-block group-hover:rotate-180">
+              <span className="text-[10px] inline-block transition-transform duration-200 group-hover:rotate-180">
                 ▾
               </span>
             </Link>
@@ -75,23 +76,27 @@ export default function Header() {
                 min-w-[220px] bg-n2f-secondary border border-n2f-border
                 rounded-xl p-2 opacity-0 invisible
                 group-hover:opacity-100 group-hover:visible
-                transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+                transition-all duration-200 shadow-[0_8px_32px_rgba(0,0,0,0.5)]
                 max-md:static max-md:translate-x-0 max-md:opacity-100 max-md:visible
                 max-md:bg-white/[0.03] max-md:border-none max-md:shadow-none
                 max-md:pl-4 max-md:mt-2 max-md:min-w-0
                 max-md:border-l-2 max-md:border-l-n2f-border
               "
             >
-              {services.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-3.5 py-2.5 text-sm text-n2f-text-muted rounded-lg hover:bg-n2f-accent-subtle hover:text-white transition-all duration-200"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.icon} {item.label}
-                </Link>
-              ))}
+              {services.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-n2f-text-muted rounded-lg hover:bg-n2f-hover hover:text-n2f-text transition-colors duration-200"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -99,7 +104,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-n2f-text-muted hover:text-white transition-colors duration-300 max-md:text-base"
+              className="text-sm text-n2f-text-muted hover:text-n2f-text transition-colors duration-200 max-md:text-base"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -111,7 +116,7 @@ export default function Header() {
               <>
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 text-sm text-n2f-text-muted hover:text-white transition-colors duration-300"
+                  className="flex items-center gap-2 text-sm text-n2f-text-muted hover:text-n2f-text transition-colors duration-200"
                   onClick={() => setMenuOpen(false)}
                 >
                   {session.user.image ? (
@@ -131,7 +136,7 @@ export default function Header() {
                 </Link>
                 <button
                   onClick={() => { setMenuOpen(false); signOut({ callbackUrl: "/" }); }}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-red-500 to-red-700 text-white shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_40px_rgba(239,68,68,0.4)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer max-md:w-full"
+                  className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20 transition-colors duration-200 cursor-pointer max-md:w-full"
                 >
                   Logout
                 </button>
@@ -139,7 +144,7 @@ export default function Header() {
             ) : (
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] hover:-translate-y-0.5 transition-all duration-300 max-md:w-full"
+                className="inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_20px_rgba(255,109,90,0.25)] transition-all duration-300 max-md:w-full"
                 onClick={() => setMenuOpen(false)}
               >
                 Get Started
@@ -148,15 +153,15 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle — animated hamburger → X */}
         <button
-          className="hidden max-md:flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1"
+          className="hidden max-md:flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 w-8 h-8 items-center justify-center"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
-          <span className="block w-[22px] h-0.5 bg-white rounded-sm transition-all duration-300" />
-          <span className="block w-[22px] h-0.5 bg-white rounded-sm transition-all duration-300" />
-          <span className="block w-[22px] h-0.5 bg-white rounded-sm transition-all duration-300" />
+          <span className={`block w-[22px] h-0.5 bg-n2f-text rounded-sm transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+          <span className={`block w-[22px] h-0.5 bg-n2f-text rounded-sm transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+          <span className={`block w-[22px] h-0.5 bg-n2f-text rounded-sm transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
         </button>
       </div>
     </header>

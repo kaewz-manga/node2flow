@@ -8,30 +8,33 @@ const partners = [
   { src: "/images/partners/cursor.png", alt: "Cursor" },
   { src: "/images/partners/lovable.png", alt: "Lovable" },
   { src: "/images/partners/antigravity.webp", alt: "Antigravity" },
+  { src: "/images/partners/mcp-icon.png", alt: "MCP" },
 ];
 
 export default function Partners() {
   return (
-    <section className="py-8 bg-n2f border-y border-n2f-border">
-      <div className="w-full max-w-[1100px] mx-auto px-6">
-        <p className="text-center text-xs text-n2f-text-dim mb-4 tracking-[1px] uppercase">
+    <section className="relative py-12 bg-n2f overflow-hidden">
+      {/* Gradient top/bottom borders */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-n2f-accent/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-n2f-accent/20 to-transparent" />
+
+      <div className="w-full max-w-[1200px] mx-auto px-6">
+        <p className="text-center text-xs text-n2f-text-dim mb-8 tracking-[2px] uppercase font-medium">
           Works with
         </p>
-        <div className="flex justify-center items-center gap-10 flex-wrap max-[480px]:gap-6">
-          {partners.map((partner) => (
+      </div>
+
+      {/* Marquee with gradient fade edges */}
+      <div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+        <div className="flex animate-[marquee_30s_linear_infinite] w-max gap-16 items-center">
+          {[...partners, ...partners].map((partner, i) => (
             <div
-              key={partner.alt}
-              className="flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold text-n2f-text-dim opacity-60 hover:opacity-100 hover:scale-110 hover:drop-shadow-[0_0_8px_var(--color-n2f-accent-glow)] transition-all duration-300"
+              key={`${partner.alt}-${i}`}
+              className="flex items-center justify-center flex-shrink-0 grayscale brightness-50 hover:grayscale-0 hover:brightness-100 hover:scale-110 transition-all duration-500"
             >
-              <Image src={partner.src} alt={partner.alt} width={40} height={40} className="h-10 w-auto" />
+              <Image src={partner.src} alt={partner.alt} width={44} height={44} className="h-11 w-auto" />
             </div>
           ))}
-
-          {/* MCP - special invert treatment */}
-          <div className="flex items-center justify-center gap-2 p-2 px-3 opacity-60 scale-90 hover:opacity-100 hover:scale-100 transition-all duration-300">
-            <Image src="/images/partners/mcp-icon.png" alt="MCP" width={40} height={40} className="h-10 w-auto" />
-            <Image src="/images/partners/mcp-text.png" alt="MCP" width={40} height={20} className="h-5 w-auto invert" />
-          </div>
         </div>
       </div>
     </section>

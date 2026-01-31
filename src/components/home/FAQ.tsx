@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
 
 const faqs = [
   {
@@ -24,43 +26,46 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 max-md:py-12 bg-n2f" id="faq">
+    <section className="py-28 max-md:py-16 bg-n2f" id="faq">
       <div className="w-full max-w-[800px] mx-auto px-6">
-        <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-extrabold text-center mb-4 text-white">
-          คำถามที่พบบ่อย
-        </h2>
+        <FadeIn>
+          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text">
+            คำถามที่พบบ่อย
+          </h2>
+        </FadeIn>
 
-        <div className="max-w-[700px] mx-auto mt-12 flex flex-col gap-4">
+        <div className="max-w-[700px] mx-auto mt-14 flex flex-col gap-3">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className={`bg-n2f-secondary border rounded-xl overflow-hidden transition-colors duration-300 ${
-                openIndex === i ? "border-n2f-accent/20" : "border-n2f-border"
-              }`}
-            >
-              <button
-                className="w-full flex items-center justify-between px-6 py-5 text-base font-semibold text-white cursor-pointer select-none text-left"
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              >
-                <span>{faq.question}</span>
-                <span
-                  className={`shrink-0 w-2.5 h-2.5 border-r-2 border-b-2 border-n2f-text-muted ml-4 transition-transform duration-300 ${
-                    openIndex === i ? "-rotate-[135deg]" : "rotate-45"
-                  }`}
-                />
-              </button>
+            <FadeIn key={i} delay={i * 80}>
               <div
-                className={`grid transition-[grid-template-rows] duration-300 ${
-                  openIndex === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                className={`bg-n2f-secondary border rounded-xl overflow-hidden transition-colors duration-200 ${
+                  openIndex === i ? "border-n2f-border-hover" : "border-n2f-border"
                 }`}
               >
-                <div className="overflow-hidden">
-                  <div className="px-6 pb-5">
-                    <p className="text-sm text-n2f-text-muted leading-[1.8]">{faq.answer}</p>
+                <button
+                  className="w-full flex items-center justify-between px-6 py-5 text-base font-medium text-n2f-text cursor-pointer select-none text-left"
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`shrink-0 w-4 h-4 text-n2f-text-muted ml-4 transition-transform duration-200 ${
+                      openIndex === i ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`grid transition-[grid-template-rows] duration-200 ${
+                    openIndex === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-5">
+                      <p className="text-sm text-n2f-text-muted leading-relaxed">{faq.answer}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>

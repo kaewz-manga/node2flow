@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Providers from "@/components/Providers";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://node2flow.net";
 
@@ -47,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th">
-      <body className="font-sans">
+      <body className={`${geist.variable} ${geistMono.variable} font-sans`}>
         <Providers>
           <Header />
           {children}

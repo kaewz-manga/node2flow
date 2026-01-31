@@ -33,30 +33,28 @@ export default async function BlogPost({ params }: Props) {
   const tags: string[] = post.tags ? JSON.parse(post.tags) : [];
 
   return (
-    <main className="relative overflow-hidden pt-[calc(80px+60px)] pb-20 bg-n2f">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[url('/images/partners/mcp-icon.png')] bg-center bg-contain bg-no-repeat opacity-[0.025] pointer-events-none" />
-
-      <div className="w-full max-w-[800px] mx-auto px-6 relative z-[1]">
+    <main className="pt-[calc(80px+80px)] pb-20 bg-n2f">
+      <div className="w-full max-w-[800px] mx-auto px-6">
         <Link href="/blog" className="text-sm text-n2f-accent hover:underline mb-8 inline-block">
           &larr; กลับไปหน้า Blog
         </Link>
 
         <article>
           <p className="text-xs text-n2f-text-dim mb-3">{post.publishedAt}</p>
-          <h1 className="text-4xl max-md:text-[28px] font-extrabold text-white mb-6">
+          <h1 className="text-4xl max-md:text-[28px] font-bold text-n2f-text mb-6">
             {post.title}
           </h1>
 
-          <div className="flex gap-2 mb-8">
+          <div className="flex gap-2 mb-10">
             {tags.map((tag) => (
-              <span key={tag} className="text-xs text-n2f-accent bg-n2f-accent/[0.08] border border-n2f-accent/20 px-2.5 py-0.5 rounded-full">
+              <span key={tag} className="text-xs text-n2f-accent bg-n2f-accent/[0.06] border border-n2f-accent/15 px-2.5 py-0.5 rounded-md">
                 {tag}
               </span>
             ))}
           </div>
 
           <div
-            className="prose prose-invert max-w-none [&_section]:mb-8 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-n2f-accent [&_h2]:mb-4 [&_p]:text-n2f-text-secondary [&_p]:leading-[1.8] [&_ul]:mt-4 [&_ul]:space-y-2 [&_li]:relative [&_li]:pl-6 [&_li]:text-sm [&_li]:text-n2f-text-secondary [&_li]:before:content-['✓'] [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:text-n2f-accent [&_li]:before:font-bold"
+            className="prose prose-invert max-w-none [&_section]:mb-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-n2f-text [&_h2]:mb-4 [&_p]:text-n2f-text-secondary [&_p]:leading-relaxed [&_ul]:mt-4 [&_ul]:space-y-2 [&_li]:relative [&_li]:pl-6 [&_li]:text-sm [&_li]:text-n2f-text-secondary [&_li]:before:content-['✓'] [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:text-n2f-accent [&_li]:before:font-bold"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </article>

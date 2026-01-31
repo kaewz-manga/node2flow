@@ -1,3 +1,6 @@
+import { MessageSquareQuote } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
+
 export default function AboutMCP() {
   const examples = [
     '"ดึงยอดขายจาก Google Sheet แล้วสร้างรายงานสรุปลง Notion พร้อมส่งแจ้งเตือนทีมผ่าน LINE"',
@@ -6,43 +9,40 @@ export default function AboutMCP() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-20 max-md:py-12 bg-n2f" id="about">
-      {/* MCP watermark */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-[url('/images/partners/mcp-icon.png')] bg-center bg-contain bg-no-repeat opacity-[0.025] pointer-events-none"
-        aria-hidden="true"
-      />
+    <section className="py-28 max-md:py-16 bg-n2f" id="about">
+      <div className="w-full max-w-[800px] mx-auto px-6">
+        <FadeIn>
+          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-5 text-n2f-text">
+            MCP คืออะไร?
+          </h2>
+          <p className="text-center text-n2f-text-secondary text-base leading-[1.8] mb-8">
+            Model Context Protocol (MCP) คือมาตรฐานสากลที่เปิดให้ AI ทุกตัว
+            สั่งงานบริการภายนอกได้โดยตรง &mdash; จัดการข้อมูล สร้างเอกสาร
+            ส่งข้อความ วิเคราะห์ไฟล์ และ automate workflow ได้ในคำสั่งเดียว
+            โดยไม่ต้องเขียนโค้ดแม้แต่บรรทัดเดียว
+          </p>
+        </FadeIn>
 
-      <div className="w-full max-w-[800px] mx-auto px-6 relative z-[1]">
-        <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-extrabold text-center mb-4 text-white">
-          MCP คืออะไร?
-        </h2>
-        <p className="text-center text-n2f-text-secondary text-base leading-[1.8] mb-6">
-          Model Context Protocol (MCP) คือมาตรฐานสากลที่เปิดให้ AI ทุกตัว
-          สั่งงานบริการภายนอกได้โดยตรง &mdash; จัดการข้อมูล สร้างเอกสาร
-          ส่งข้อความ วิเคราะห์ไฟล์ และ automate workflow ได้ในคำสั่งเดียว
-          โดยไม่ต้องเขียนโค้ดแม้แต่บรรทัดเดียว
-        </p>
-
-        {/* Example Card */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-6 mt-8 hover:border-n2f-accent hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:-translate-y-1.5 transition-all duration-300 group">
-          {/* Shine sweep */}
-          <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-n2f-accent/[0.06] to-transparent transition-[left] duration-600 pointer-events-none group-hover:left-full" />
-
-          <span className="inline-block text-base font-extrabold text-n2f-accent mb-4 tracking-[1px]">
-            สั่ง AI ครั้งเดียว ทำได้ทุกอย่าง
-          </span>
-          <div className="space-y-2">
-            {examples.map((example, i) => (
-              <p
-                key={i}
-                className="text-n2f-text-secondary text-base leading-8 pl-4 border-l-2 border-n2f-border"
-              >
-                {example}
-              </p>
-            ))}
+        <FadeIn delay={150}>
+          <div className="group gradient-border p-7 mt-4 hover:scale-[1.01] transition-transform duration-300">
+            <div className="flex items-center gap-2.5 mb-5">
+              <MessageSquareQuote className="w-5 h-5 text-n2f-accent" />
+              <span className="text-sm font-semibold text-n2f-accent tracking-wide">
+                สั่ง AI ครั้งเดียว ทำได้ทุกอย่าง
+              </span>
+            </div>
+            <div className="space-y-3">
+              {examples.map((example, i) => (
+                <p
+                  key={i}
+                  className="text-n2f-text-secondary text-sm leading-7 pl-4 border-l-2 border-n2f-accent/20 hover:border-n2f-accent/50 transition-colors duration-300"
+                >
+                  {example}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );
