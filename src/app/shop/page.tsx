@@ -112,6 +112,62 @@ export default function ShopPage() {
           </p>
         </div>
 
+        {/* SaaS Services */}
+        <section className="mb-14">
+          <div className="flex items-center gap-3 mb-6">
+            <h2 className="text-4xl max-md:text-[28px] font-extrabold text-white">SaaS Platform</h2>
+            <span className="text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-[0.5px] bg-purple-500/15 text-purple-400 border border-purple-500/30">
+              Live
+            </span>
+          </div>
+          <p className="text-n2f-text-muted mb-6">Product แรกจาก Node2Flow — AI ควบคุม n8n ผ่าน MCP Protocol</p>
+          <div className="grid grid-cols-1 gap-6">
+            <div className="flex flex-col bg-gradient-to-br from-n2f-secondary to-n2f-tertiary border border-n2f-border rounded-2xl p-7 hover:border-n2f-accent hover:shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:-translate-y-1 transition-all duration-300 md:flex-row md:gap-8">
+              <div className="flex-1">
+                <div className="text-xs font-semibold uppercase tracking-[1px] mb-3 text-purple-400">
+                  SaaS Platform
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2 leading-snug">n8n Management MCP</h3>
+                <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">
+                  Multi-tenant MCP Server บน Cloudflare Workers ให้ AI (Claude, Cursor, Windsurf) ควบคุม n8n ได้โดยตรง
+                  ด้วย 32 MCP Tools ครอบคลุม Workflow, Execution, Credential, Tag และ User Management
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {["MCP", "n8n", "AI", "SaaS", "Cloudflare Workers", "32 Tools"].map((tag) => (
+                    <span key={tag} className="text-xs text-n2f-text-muted bg-white/5 border border-white/[0.08] px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col items-end justify-between md:min-w-[180px] pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-n2f-border md:pl-8">
+                <div className="text-right mb-4">
+                  <span className="text-lg font-extrabold text-green-500">Free</span>
+                  <span className="text-sm text-n2f-text-muted"> — </span>
+                  <span className="text-lg font-extrabold text-white">$99.99</span>
+                  <span className="text-xs text-n2f-text-muted">/mo</span>
+                </div>
+                <div className="flex flex-col gap-2 w-full">
+                  <Link
+                    href="/products/mcp"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-br from-n2f-accent to-n2f-accent-dark text-black shadow-[0_0_20px_var(--color-n2f-accent-glow)] hover:shadow-[0_0_40px_var(--color-n2f-accent-glow)] transition-all duration-300"
+                  >
+                    ดูรายละเอียด
+                  </Link>
+                  <a
+                    href="https://n8n-management-dashboard.node2flow.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg border border-white/20 text-white hover:border-n2f-accent hover:text-n2f-accent transition-all duration-300"
+                  >
+                    เข้า Dashboard
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Free Resources */}
         <section className="mb-14">
           <div className="flex items-center gap-3 mb-6">
