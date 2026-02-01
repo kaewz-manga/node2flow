@@ -1,10 +1,14 @@
+import { config } from "dotenv";
 import { defineConfig } from "drizzle-kit";
+
+config({ path: ".env.local" });
 
 export default defineConfig({
   schema: "./src/lib/schema.ts",
   out: "./drizzle",
-  dialect: "sqlite",
+  dialect: "turso",
   dbCredentials: {
-    url: "database.db",
+    url: process.env.TURSO_DATABASE_URL || "file:database.db",
+    authToken: process.env.TURSO_AUTH_TOKEN,
   },
 });

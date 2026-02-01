@@ -8,7 +8,7 @@ import LatestPosts from "@/components/home/LatestPosts";
 import FAQ from "@/components/home/FAQ";
 import CTA from "@/components/home/CTA";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Hero />

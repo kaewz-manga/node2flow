@@ -39,10 +39,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/login",
   },
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        const dbUser = db
+        const dbUser = await db
           .select({
             role: users.role,
             n8nUserId: users.n8nUserId,
@@ -62,7 +62,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async createUser({ user }) {
       // Set admin role for admin email
       if (user.email === ADMIN_EMAIL) {
-        db.update(users)
+        await db.update(users)
           .set({ role: "admin" })
           .where(eq(users.id, user.id!))
           .run();
@@ -72,7 +72,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (user.email) {
         const n8nUser = await createN8nUser(user.email);
         if (n8nUser?.id) {
-          db.update(users)
+          await db.update(users)
             .set({
               n8nUserId: n8nUser.id,
               n8nInviteUrl: n8nUser.inviteAcceptUrl || null,
@@ -95,7 +95,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             : n8nUser.inviteAcceptUrl
               ? `ตรวจสอบอีเมล ${user.email} สำหรับลิงก์ตั้งรหัสผ่าน`
               : `บัญชี n8n พร้อมใช้งานแล้ว`;
-          db.insert(notifications)
+          await db.insert(notifications)
             .values({
               userId: user.id!,
               title: "n8n Account Created",
@@ -107,7 +107,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
 
       // Welcome notification
-      db.insert(notifications)
+      await db.insert(notifications)
         .values({
           userId: user.id!,
           title: "Welcome to Node2Flow!",

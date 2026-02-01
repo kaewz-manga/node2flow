@@ -2,16 +2,16 @@ import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/queries";
 import FadeIn from "@/components/ui/FadeIn";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Blog - Node2Flow",
   description: "Articles about MCP, n8n, AI Automation and Workflow",
 };
 
-export default function BlogPage() {
-  const t = useTranslations("blog");
-  const posts = getAllPosts();
+export default async function BlogPage() {
+  const t = await getTranslations("blog");
+  const posts = await getAllPosts();
 
   return (
     <main className="pt-[calc(80px+80px)] pb-20 bg-n2f">

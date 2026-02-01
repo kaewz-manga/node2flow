@@ -30,14 +30,14 @@ export async function POST(req: NextRequest) {
       const amount = (session.amount_total || 0) / 100;
 
       // Find product
-      const product = db
+      const product = await db
         .select()
         .from(products)
         .where(eq(products.slug, productSlug))
         .get();
 
       // Create order
-      const order = db
+      const order = await db
         .insert(orders)
         .values({
           userId,
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
 
       // Grant download access for one-time purchases
       if (product && session.mode === "payment") {
-        db.insert(userDownloads)
+        await db.insert(userDownloads)
           .values({
             userId,
             productId: product.id,
@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
         const sub = await stripe.subscriptions.retrieve(subId);
         const periodEnd =
           (sub as unknown as Record<string, number>).current_period_end ?? 0;
-        db.insert(userSubscriptions)
+        await db.insert(userSubscriptions)
           .values({
             userId,
             planId: product?.id || 0,
@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
 
     case "customer.subscription.deleted": {
       const sub = event.data.object;
-      db.update(userSubscriptions)
+      await db.update(userSubscriptions)
         .set({ status: "cancelled" })
         .where(eq(userSubscriptions.stripeSubscriptionId, sub.id))
         .run();

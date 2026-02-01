@@ -2,11 +2,11 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight, FileText, BookOpen } from "lucide-react";
 import { getAllPosts } from "@/lib/queries";
 import FadeIn from "@/components/ui/FadeIn";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function LatestPosts() {
-  const t = useTranslations("latestPosts");
-  const posts = getAllPosts().slice(0, 3);
+export default async function LatestPosts() {
+  const t = await getTranslations("latestPosts");
+  const posts = (await getAllPosts()).slice(0, 3);
 
   const docHighlights = [
     { title: t("docMcp"), desc: t("docMcpDesc"), href: "/docs" as const },

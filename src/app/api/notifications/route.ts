@@ -11,7 +11,7 @@ export async function GET() {
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const items = getUserNotifications(session.user.id);
+  const items = await getUserNotifications(session.user.id);
   return NextResponse.json(items);
 }
 
@@ -21,7 +21,7 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const { id } = await req.json();
-  markNotificationRead(id, session.user.id);
+  await markNotificationRead(id, session.user.id);
   return NextResponse.json({ ok: true });
 }
 
@@ -31,6 +31,6 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const { id } = await req.json();
-  deleteNotification(id, session.user.id);
+  await deleteNotification(id, session.user.id);
   return NextResponse.json({ ok: true });
 }
