@@ -21,7 +21,7 @@ const services = [
 function IconCard({ src, label }: { src: string; label: string }) {
   return (
     <div className="group card-glow flex flex-col items-center gap-1.5 p-3.5 px-2 bg-n2f-secondary border border-n2f-border rounded-xl hover:border-n2f-border-hover hover:bg-n2f-hover hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-      <Image src={src} alt={label} width={36} height={36} className="h-9 w-auto opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+      <Image src={src} alt={label} width={36} height={36} className="h-9 w-auto" />
       <span className="text-xs text-n2f-text-muted text-center whitespace-nowrap">{label}</span>
     </div>
   );
@@ -92,7 +92,7 @@ export default function Architecture() {
                     alt="Node2Flow"
                     width={80}
                     height={80}
-                    className="rounded-full border-2 border-n2f-accent/40 shadow-[0_0_30px_rgba(255,109,90,0.15)] animate-[glow-pulse_4s_ease-in-out_infinite]"
+                    className="rounded-full border-2 border-n2f-accent/40 shadow-[0_0_30px_rgba(255,109,90,0.15)] animate-[glow-pulse_2s_ease-in-out_infinite]"
                   />
                   <Image
                     src="/images/partners/mcp-icon.png"
