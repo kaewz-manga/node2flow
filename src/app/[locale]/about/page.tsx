@@ -18,7 +18,7 @@ const techStack = [
 ];
 
 const contacts = [
-  { icon: Mail, label: "Email", value: "node2flow@gmail.com", href: "mailto:node2flow@gmail.com" },
+  { icon: Mail, label: "Email", value: "node2flow", href: "mailto:node2flow@gmail.com" },
   { icon: Send, label: "Telegram", value: "@node2flow_bot", href: "https://t.me/node2flow_bot" },
   { icon: Heart, label: "LINE", value: "@990pvvzg", href: "https://line.me/R/ti/p/@990pvvzg" },
 ];

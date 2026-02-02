@@ -27,7 +27,7 @@ const channels = [
   {
     icon: "/images/partners/gmail.svg",
     name: "Email",
-    handle: "node2flow@gmail.com",
+    handle: "node2flow",
     href: "mailto:node2flow@gmail.com",
     hoverColor: "hover:border-[#EA4335]",
   },

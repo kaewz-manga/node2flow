@@ -14,7 +14,7 @@ const quickLinkData = [
 const contactLinks = [
   {
     href: "mailto:node2flow@gmail.com",
-    label: "node2flow@gmail.com",
+    label: "node2flow",
     icon: "/images/partners/gmail.svg",
   },
   {
