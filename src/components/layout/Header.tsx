@@ -8,9 +8,12 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const serviceIcons = [Rocket, Lock, Cloud, LayoutGrid];
-const serviceHrefs = ["/services/install", "/services/private", "/services/mcp-platform", "/#services"] as const;
-const serviceKeys = ["installService", "privateMcp", "saasMcp", "allServices"] as const;
+// const serviceIcons_hidden = [Rocket, Lock];
+// const serviceHrefs_hidden = ["/services/install", "/services/private"] as const;
+// const serviceKeys_hidden = ["installService", "privateMcp"] as const;
+const serviceIcons = [Cloud, LayoutGrid];
+const serviceHrefs = ["/services/mcp-platform", "/#services"] as const;
+const serviceKeys = ["saasMcp", "allServices"] as const;
 
 const navLinkData = [
   { href: "/#about", key: "mcp" },
