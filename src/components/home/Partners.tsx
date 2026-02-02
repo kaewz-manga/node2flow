@@ -29,13 +29,17 @@ export default function Partners() {
 
       {/* Marquee with gradient fade edges */}
       <div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-        <div className="flex animate-[marquee_30s_linear_infinite] w-max gap-16 items-center">
-          {[...partners, ...partners].map((partner, i) => (
-            <div
-              key={`${partner.alt}-${i}`}
-              className="flex items-center justify-center flex-shrink-0 grayscale brightness-50 hover:grayscale-0 hover:brightness-100 hover:scale-110 transition-all duration-500"
-            >
-              <Image src={partner.src} alt={partner.alt} width={44} height={44} className="h-11 w-auto" />
+        <div className="flex w-max animate-[marquee_30s_linear_infinite]">
+          {[0, 1, 2, 3].map((copy) => (
+            <div key={copy} className="flex shrink-0 gap-16 items-center pr-16">
+              {partners.map((partner) => (
+                <div
+                  key={`${partner.alt}-${copy}`}
+                  className="flex items-center justify-center shrink-0 opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-500"
+                >
+                  <Image src={partner.src} alt={partner.alt} width={44} height={44} className="h-11 w-auto" />
+                </div>
+              ))}
             </div>
           ))}
         </div>
