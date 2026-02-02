@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 export const metadata: Metadata = {
   title: "n8n Management MCP - Node2Flow",
   description:
-    "Multi-tenant SaaS MCP Server for controlling n8n via AI with 32 MCP Tools",
+    "Multi-tenant MCP Platform Server for controlling n8n via AI with 32 MCP Tools",
 };
 
 const DASHBOARD_URL = "https://n8n-management-dashboard.node2flow.net";
@@ -246,7 +246,7 @@ export default function MCPProductPage() {
                 {t("goDashboard")}
               </a>
               <Link
-                href="/services/saas"
+                href="/services/mcp-platform"
                 className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200"
               >
                 {t("viewSaas")}

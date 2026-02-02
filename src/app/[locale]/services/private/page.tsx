@@ -30,7 +30,7 @@ export default function PrivatePage() {
               <Link href="/shop" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
                 {t("interested")}
               </Link>
-              <Link href="/services/saas" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200">
+              <Link href="/services/mcp-platform" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200">
                 {t("viewSaas")}
               </Link>
             </div>

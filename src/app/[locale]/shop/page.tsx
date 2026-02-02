@@ -152,11 +152,11 @@ export default function ShopPage() {
           </section>
         </FadeIn>
 
-        {/* SaaS Services */}
+        {/* MCP Platform Services */}
         <FadeIn delay={100}>
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">SaaS Platform</h2>
+              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">MCP Platform</h2>
               <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-purple-500/10 text-purple-400 border border-purple-500/20">
                 Live
               </span>
@@ -165,14 +165,14 @@ export default function ShopPage() {
               <div className="card-glow flex flex-col bg-n2f-secondary border border-n2f-border rounded-xl p-7 hover:border-n2f-border-hover transition-colors duration-200 md:flex-row md:gap-8">
                 <div className="flex-1">
                   <div className="text-xs font-medium uppercase tracking-[1px] mb-3 text-purple-400">
-                    SaaS Platform
+                    MCP Platform
                   </div>
                   <h3 className="text-xl font-semibold text-n2f-text mb-2 leading-snug">n8n Management MCP</h3>
                   <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">
                     Multi-tenant MCP Server on Cloudflare Workers — 32 MCP Tools for Workflow, Execution, Credential, Tag and User Management
                   </p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
-                    {["MCP", "n8n", "AI", "SaaS", "Cloudflare Workers", "32 Tools"].map((tag) => (
+                    {["MCP", "n8n", "AI", "MCP Platform", "Cloudflare Workers", "32 Tools"].map((tag) => (
                       <span key={tag} className="text-xs text-n2f-text-muted bg-n2f-hover border border-n2f-border px-2 py-0.5 rounded">
                         {tag}
                       </span>

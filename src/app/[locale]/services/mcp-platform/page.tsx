@@ -5,8 +5,8 @@ import FadeIn from "@/components/ui/FadeIn";
 import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "SaaS n8n-MCP - Node2Flow",
-  description: "SaaS MCP Server - No installation needed",
+  title: "MCP Platform n8n-MCP - Node2Flow",
+  description: "MCP Platform Server - No installation needed",
 };
 
 const DASHBOARD_URL = "https://n8n-management-dashboard.node2flow.net";
@@ -29,7 +29,7 @@ const benefits = [
   "Auto-updates — New tools automatically",
 ];
 
-export default function SaaSPage() {
+export default function McpPlatformPage() {
   const t = useTranslations("saas");
 
   return (

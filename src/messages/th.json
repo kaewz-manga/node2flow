@@ -15,7 +15,7 @@
     "logout": "Logout",
     "installService": "รับติดตั้ง n8n-MCP",
     "privateMcp": "Private MCP Server",
-    "saasMcp": "SaaS n8n-MCP",
+    "saasMcp": "MCP Platform",
     "allServices": "ดูบริการทั้งหมด"
   },
   "hero": {
@@ -140,7 +140,7 @@
     "noDownloads": "ยังไม่มีไฟล์ดาวน์โหลด",
     "noDownloadsDesc": "ซื้อสินค้าจาก Shop แล้วกลับมาดาวน์โหลดที่นี่",
     "noSub": "ยังไม่ได้สมัครแพ็คเกจ",
-    "noSubDesc": "สมัครแพ็คเกจ SaaS เพื่อเข้าถึง MCP Server",
+    "noSubDesc": "สมัครแพ็คเกจ MCP Platform เพื่อเข้าถึง MCP Server",
     "viewPlans": "ดูแพ็คเกจ",
     "platformTitle": "Node2Flow MCP Platform",
     "platformDesc": "Node2Flow ให้บริการ MCP Server สำหรับเชื่อมต่อ AI กับ n8n Workflow Automation คุณสามารถสั่ง AI สร้าง แก้ไข และจัดการ workflow ได้โดยตรงผ่าน MCP Protocol",
@@ -257,7 +257,7 @@
     "title": "Private MCP Server",
     "desc": "MCP Server ส่วนตัวบน server ของคุณ ปลอดภัย ข้อมูลไม่ออกจากระบบ",
     "interested": "สนใจบริการนี้",
-    "viewSaas": "ดูแบบ SaaS",
+    "viewSaas": "ดูแบบ MCP Platform",
     "benefits": "ข้อดีของ Private MCP",
     "b1": "ความปลอดภัยสูงสุด",
     "b1d": "ข้อมูลอยู่บน server ของคุณ ไม่ผ่าน cloud ของเรา",
@@ -279,11 +279,11 @@
   },
   "saas": {
     "badge": "Cloud Service",
-    "title": "SaaS n8n-MCP",
+    "title": "MCP Platform",
     "desc": "สมัครรับ MCP URL ใช้งานได้ทันที ไม่ต้องติดตั้ง ไม่ต้องมี server เชื่อมต่อ AI กับ n8n ได้เลย",
     "signup": "สมัครใช้งาน",
     "viewProduct": "ดูรายละเอียด Product",
-    "whatIs": "SaaS n8n-MCP คืออะไร?",
+    "whatIs": "MCP Platform คืออะไร?",
     "whatIsDesc": "เราให้บริการ MCP Server แบบ Cloud สมัครแล้วได้ URL + API Key เอาไปใส่ใน Claude Desktop, Cursor, Windsurf หรือ n8n ได้เลย ไม่ต้องติดตั้งอะไร ไม่ต้องมี server ของตัวเอง",
     "howTo": "วิธีเริ่มใช้งาน",
     "h1": "สมัครสมาชิก",
@@ -327,7 +327,7 @@
   "product": {
     "badge": "Product",
     "title": "n8n Management MCP",
-    "heroDesc": "Multi-tenant SaaS MCP Server สำหรับควบคุม n8n ผ่าน AI ด้วย 32 Tools รองรับ Claude Desktop, Cursor, Windsurf",
+    "heroDesc": "Multi-tenant MCP Platform Server สำหรับควบคุม n8n ผ่าน AI ด้วย 32 Tools รองรับ Claude Desktop, Cursor, Windsurf",
     "goDashboard": "เข้า Dashboard",
     "whatIs": "n8n Management MCP คืออะไร?",
     "whatIsDesc1": "MCP (Model Context Protocol) เป็นมาตรฐานที่ให้ AI เชื่อมต่อกับระบบภายนอกได้ n8n Management MCP ทำให้ AI อย่าง Claude สามารถสร้าง แก้ไข และจัดการ n8n workflow ได้โดยตรง ผ่านคำสั่งภาษาธรรมชาติ",
@@ -366,7 +366,7 @@
     "techStack": "Tech Stack",
     "ctaTitle": "พร้อมเริ่มต้น?",
     "ctaDesc": "สมัครฟรี ทดลอง 100 requests/เดือน",
-    "viewSaas": "ดูแพ็คเกจ SaaS"
+    "viewSaas": "ดูแพ็คเกจ MCP Platform"
   },
   "common": {
     "backHome": "← กลับหน้าแรก",

@@ -14,7 +14,7 @@ export default function SubscriptionPage() {
         <h2 className="text-lg font-semibold text-n2f-text mb-2">{t("noSub")}</h2>
         <p className="text-sm text-n2f-text-muted mb-6">{t("noSubDesc")}</p>
         <Link
-          href="/services/saas"
+          href="/services/mcp-platform"
           className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
         >
           {t("viewPlans")}

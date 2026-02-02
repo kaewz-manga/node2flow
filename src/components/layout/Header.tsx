@@ -9,7 +9,7 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
 const serviceIcons = [Rocket, Lock, Cloud, LayoutGrid];
-const serviceHrefs = ["/services/install", "/services/private", "/services/saas", "/#services"] as const;
+const serviceHrefs = ["/services/install", "/services/private", "/services/mcp-platform", "/#services"] as const;
 const serviceKeys = ["installService", "privateMcp", "saasMcp", "allServices"] as const;
 
 const navLinkData = [
