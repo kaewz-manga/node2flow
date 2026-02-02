@@ -151,7 +151,7 @@ export default function ShopPage() {
                       href="/products/mcp"
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
                     >
-                      Get Product
+                      Product Details
                     </Link>
                   </div>
                 </div>
