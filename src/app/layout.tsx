@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
@@ -47,6 +49,8 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body className={`${geist.variable} ${geistMono.variable} font-sans`}>
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
