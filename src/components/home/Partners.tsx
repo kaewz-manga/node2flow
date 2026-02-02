@@ -16,10 +16,10 @@ export default function Partners() {
   const t = useTranslations("partners");
 
   return (
-    <section className="relative py-14 bg-n2f overflow-hidden">
-      {/* Neutral border lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+    <section className="relative py-12 bg-n2f overflow-hidden">
+      {/* Gradient top/bottom borders */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-n2f-accent/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-n2f-accent/20 to-transparent" />
 
       <div className="w-full max-w-[1200px] mx-auto px-6">
         <p className="text-center text-xs text-n2f-text-dim mb-8 tracking-[2px] uppercase font-medium">
@@ -33,9 +33,9 @@ export default function Partners() {
           {[...partners, ...partners].map((partner, i) => (
             <div
               key={`${partner.alt}-${i}`}
-              className="flex items-center justify-center flex-shrink-0 opacity-40 hover:opacity-100 hover:scale-105 transition-all duration-500"
+              className="flex items-center justify-center flex-shrink-0 grayscale brightness-50 hover:grayscale-0 hover:brightness-100 hover:scale-110 transition-all duration-500"
             >
-              <Image src={partner.src} alt={partner.alt} width={48} height={48} className="h-12 w-auto" />
+              <Image src={partner.src} alt={partner.alt} width={44} height={44} className="h-11 w-auto" />
             </div>
           ))}
         </div>
