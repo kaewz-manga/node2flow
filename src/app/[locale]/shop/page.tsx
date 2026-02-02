@@ -115,45 +115,8 @@ export default function ShopPage() {
           </div>
         </FadeIn>
 
-        {/* n8n Account - Login */}
-        <FadeIn delay={50}>
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">n8n Account</h2>
-              <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-green-500/10 text-green-500 border border-green-500/20">
-                {t("comingSoon")}
-              </span>
-            </div>
-            <div className="grid grid-cols-1 gap-4">
-              <div className="relative card-glow flex flex-col bg-n2f-secondary border border-n2f-border rounded-xl p-7 md:flex-row md:gap-8 opacity-60 cursor-not-allowed select-none">
-                <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-[2px]">
-                  <span className="px-4 py-1.5 text-sm font-medium tracking-[2px] uppercase text-n2f-text border border-n2f-border rounded-md bg-n2f-secondary/80">
-                    {t("comingSoon")}
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs font-medium uppercase tracking-[1px] mb-3 text-green-400">
-                    Account
-                  </div>
-                  <h3 className="text-xl font-semibold text-n2f-text mb-2 leading-snug">{t("n8nAccountTitle")}</h3>
-                  <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">
-                    {t("n8nAccountDesc")}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["Google Login", "n8n", "MCP", "Free"].map((tag) => (
-                      <span key={tag} className="text-xs text-n2f-text-muted bg-n2f-hover border border-n2f-border px-2 py-0.5 rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </FadeIn>
-
         {/* MCP Platform Services */}
-        <FadeIn delay={100}>
+        <FadeIn delay={50}>
           <section className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">MCP Platform</h2>
@@ -188,45 +151,11 @@ export default function ShopPage() {
                       href="/products/mcp"
                       className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
                     >
-                      {t("buy")}
+                      Get Product
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-        </FadeIn>
-
-        {/* Free Resources */}
-        <FadeIn delay={150}>
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">Free Resources</h2>
-              <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-green-500/10 text-green-500 border border-green-500/20">
-                {t("free")}
-              </span>
-            </div>
-            <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
-              {freeProducts.map((p) => (
-                <ProductCard key={p.name} product={p} comingSoon={t("comingSoon")} disabled={false} />
-              ))}
-            </div>
-          </section>
-        </FadeIn>
-
-        {/* Premium */}
-        <FadeIn delay={200}>
-          <section className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">Premium</h2>
-              <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-n2f-accent/10 text-n2f-accent border border-n2f-accent/20">
-                {t("paid")}
-              </span>
-            </div>
-            <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
-              {premiumProducts.map((p) => (
-                <ProductCard key={p.name} product={p} comingSoon={t("comingSoon")} disabled />
-              ))}
             </div>
           </section>
         </FadeIn>
