@@ -13,40 +13,33 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden pt-[calc(80px+100px)] pb-36 max-md:pt-[calc(48px+70px)] max-md:pb-24">
+    <section className="relative overflow-hidden pt-[calc(80px+100px)] pb-44 max-md:pt-[calc(48px+70px)] max-md:pb-28">
       {/* Multi-layer background */}
       <div className="absolute inset-0 bg-n2f" />
       <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,109,90,0.14),transparent)]" />
-
-      {/* Animated glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[rgba(255,109,90,0.06)] rounded-full blur-[100px] animate-[orb-float-1_12s_ease-in-out_infinite]" />
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[rgba(160,80,255,0.04)] rounded-full blur-[80px] animate-[orb-float-2_15s_ease-in-out_infinite]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,109,90,0.18),transparent)]" />
 
       <div className="w-full max-w-[1200px] mx-auto px-6 relative z-[1]">
         <div className="text-center flex flex-col items-center">
-          {/* Floating logo */}
-          <div className="animate-[float_6s_ease-in-out_infinite]">
-            <Image
-              src="/images/logo.jpg"
-              alt="Node2Flow"
-              width={72}
-              height={72}
-              className="rounded-2xl shadow-[0_0_50px_rgba(255,109,90,0.3),0_0_100px_rgba(255,109,90,0.1)]"
-            />
-          </div>
+          {/* Logo — static, authoritative */}
+          <Image
+            src="/images/logo.jpg"
+            alt="Node2Flow"
+            width={72}
+            height={72}
+            className="rounded-2xl shadow-[0_0_30px_rgba(255,109,90,0.15)]"
+          />
 
-          {/* Animated badge */}
-          <span className="inline-block px-4 py-1.5 text-xs font-medium tracking-[2px] uppercase text-n2f-accent border border-n2f-accent/25 rounded-full bg-n2f-accent/[0.08] mt-8 mb-10 shadow-[0_0_20px_rgba(255,109,90,0.08)] animate-[glow-pulse_3s_ease-in-out_infinite]">
+          {/* Badge — static, no pulse */}
+          <span className="inline-block px-4 py-1.5 text-xs font-medium tracking-[2px] uppercase text-n2f-accent border border-n2f-accent/25 rounded-full bg-n2f-accent/[0.08] mt-8 mb-10">
             {t("badge")}
           </span>
 
-          {/* Gradient animated heading */}
+          {/* Heading — larger, dominant */}
           <h1
-            className="text-[72px] max-md:text-5xl max-[480px]:text-[32px] font-bold leading-[1.05] mb-5 bg-clip-text text-transparent"
+            className="text-[clamp(40px,8vw,80px)] font-bold leading-[1.05] mb-5 bg-clip-text text-transparent"
             style={{
               backgroundImage: "linear-gradient(180deg, #ededed 0%, #a1a1a6 60%, #71717a 100%)",
-              filter: "drop-shadow(0 0 30px rgba(255,109,90,0.25))",
             }}
           >
             {t("title")}
@@ -60,18 +53,18 @@ export default function Hero() {
             {t("desc")}
           </p>
 
-          {/* Buttons with hover effects */}
+          {/* CTA buttons */}
           <div className="flex gap-4 flex-wrap justify-center max-[480px]:flex-col max-[480px]:items-center">
             <Link
               href="/login"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_30px_rgba(255,109,90,0.3)] transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
+              className="group inline-flex items-center justify-center gap-2 px-10 py-4 text-lg font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_30px_rgba(255,109,90,0.3)] transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               href="/#services"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-xl bg-white/[0.04] text-n2f-text-secondary border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] hover:text-n2f-text transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-lg font-medium rounded-xl bg-white/[0.04] text-n2f-text-secondary border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] hover:text-n2f-text transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
               {t("explore")}
             </Link>

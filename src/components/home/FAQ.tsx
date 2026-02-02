@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 import { useTranslations } from "next-intl";
 
-const faqKeys = ["q1", "q2", "q3"] as const;
+const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
 
 export default function FAQ() {
   const t = useTranslations("faq");
@@ -15,7 +15,7 @@ export default function FAQ() {
     <section className="py-28 max-md:py-16 bg-n2f" id="faq">
       <div className="w-full max-w-[800px] mx-auto px-6">
         <FadeIn>
-          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text drop-shadow-[0_0_20px_rgba(255,109,90,0.5)]">
+          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text">
             {t("title")}
           </h2>
         </FadeIn>
@@ -47,7 +47,7 @@ export default function FAQ() {
                   <div className="overflow-hidden">
                     <div className="px-6 pb-5">
                       <p className="text-sm text-n2f-text-muted leading-relaxed">
-                        {t(`a${key.slice(1)}` as "a1" | "a2" | "a3")}
+                        {t(`a${key.slice(1)}` as "a1" | "a2" | "a3" | "a4" | "a5" | "a6")}
                       </p>
                     </div>
                   </div>

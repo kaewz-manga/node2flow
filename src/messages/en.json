@@ -98,7 +98,13 @@
     "q2": "Is it hard to use?",
     "a2": "Very easy! Just sign up, get your URL, and paste it into Claude. No technical knowledge required.",
     "q3": "How much does it cost?",
-    "a3": "Start for free! We have Pro plans for those who need more usage."
+    "a3": "Start for free! We have Pro plans for those who need more usage.",
+    "q4": "Which AI clients are supported?",
+    "a4": "Any AI client that supports MCP — Claude Desktop, Cursor, Windsurf, and more. Just paste the URL and you're ready to go.",
+    "q5": "Do I need my own server?",
+    "a5": "No! We handle all the infrastructure for you. Just sign up and start using it right away.",
+    "q6": "Is my data secure?",
+    "a6": "Yes. All connections are encrypted, and we do not store your personal data."
   },
   "cta": {
     "title": "Ready to get started?",

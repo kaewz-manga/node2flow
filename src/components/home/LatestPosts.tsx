@@ -19,7 +19,7 @@ export default async function LatestPosts() {
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="w-full max-w-[1200px] mx-auto px-6 relative z-[1]">
         <FadeIn>
-          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text drop-shadow-[0_0_20px_rgba(255,109,90,0.5)]">
+          <h2 className="text-4xl max-md:text-[28px] max-[480px]:text-2xl font-bold text-center mb-4 text-n2f-text">
             {t("title")}
           </h2>
           <p className="text-center text-n2f-text-muted text-base mb-14">
