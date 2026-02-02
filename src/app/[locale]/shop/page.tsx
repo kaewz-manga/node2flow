@@ -115,6 +115,47 @@ export default function ShopPage() {
           </div>
         </FadeIn>
 
+        {/* n8n Account - Login */}
+        <FadeIn delay={50}>
+          <section className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">n8n Account</h2>
+              <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-green-500/10 text-green-500 border border-green-500/20">
+                {t("free")}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              <Link
+                href="/login"
+                className="card-glow flex flex-col bg-n2f-secondary border border-n2f-border rounded-xl p-7 hover:border-n2f-border-hover transition-colors duration-200 md:flex-row md:gap-8"
+              >
+                <div className="flex-1">
+                  <div className="text-xs font-medium uppercase tracking-[1px] mb-3 text-green-400">
+                    Account
+                  </div>
+                  <h3 className="text-xl font-semibold text-n2f-text mb-2 leading-snug">{t("n8nAccountTitle")}</h3>
+                  <p className="text-sm text-n2f-text-muted leading-relaxed mb-4">
+                    {t("n8nAccountDesc")}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Google Login", "n8n", "MCP", "Free"].map((tag) => (
+                      <span key={tag} className="text-xs text-n2f-text-muted bg-n2f-hover border border-n2f-border px-2 py-0.5 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col items-end justify-center md:min-w-[180px] pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-n2f-border md:pl-8">
+                  <span className="text-lg font-bold text-green-500 mb-3">Free</span>
+                  <span className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black">
+                    {t("loginButton")}
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </section>
+        </FadeIn>
+
         {/* SaaS Services */}
         <FadeIn delay={100}>
           <section className="mb-16">

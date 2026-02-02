@@ -26,7 +26,7 @@ export default function CTA() {
           <p className="text-n2f-text-muted text-lg mb-12">{t("subtitle")}</p>
           <div className="flex justify-center">
             <Link
-              href="/login"
+              href="/shop"
               className="group inline-flex items-center justify-center gap-2.5 px-12 py-4 text-lg font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_40px_rgba(255,109,90,0.3)] transition-all duration-300"
             >
               {t("button")}

@@ -63,7 +63,7 @@ export default function Hero() {
           {/* Buttons with hover effects */}
           <div className="flex gap-4 flex-wrap justify-center max-[480px]:flex-col max-[480px]:items-center">
             <Link
-              href="/login"
+              href="/shop"
               className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-medium rounded-xl bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_30px_rgba(255,109,90,0.3)] transition-all duration-300 max-[480px]:w-full max-[480px]:max-w-[280px]"
             >
               {t("cta")}

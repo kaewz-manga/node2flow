@@ -159,7 +159,7 @@ export default function Header() {
               </>
             ) : (
               <Link
-                href="/login"
+                href="/shop"
                 className="inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark hover:shadow-[0_0_20px_rgba(255,109,90,0.25)] transition-all duration-300 max-md:w-full"
                 onClick={() => setMenuOpen(false)}
               >

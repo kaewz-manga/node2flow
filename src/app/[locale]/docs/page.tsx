@@ -84,7 +84,7 @@ export default function DocsPage() {
           <div className="text-center mt-16 pt-14 border-t border-n2f-border">
             <h2 className="text-2xl font-bold text-n2f-text mb-3">{t("notFound")}</h2>
             <p className="text-n2f-text-muted mb-8">{t("notFoundDesc")}</p>
-            <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
+            <Link href="/shop" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
               {t("contactSupport")}
             </Link>
           </div>

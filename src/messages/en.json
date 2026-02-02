@@ -315,7 +315,10 @@
     "paid": "Products",
     "comingSoon": "Coming Soon",
     "download": "Download Free",
-    "buy": "Buy Product"
+    "buy": "Buy Product",
+    "n8nAccountTitle": "Sign in to n8n Account",
+    "n8nAccountDesc": "Sign in with Google to access your n8n dashboard, manage workflows, and connect MCP Server.",
+    "loginButton": "Sign In"
   },
   "blog": {
     "title": "Blog",

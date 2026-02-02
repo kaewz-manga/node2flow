@@ -315,7 +315,10 @@
     "paid": "สินค้า",
     "comingSoon": "Coming Soon",
     "download": "ดาวน์โหลดฟรี",
-    "buy": "ซื้อสินค้า"
+    "buy": "ซื้อสินค้า",
+    "n8nAccountTitle": "เข้าสู่ระบบ n8n Account",
+    "n8nAccountDesc": "ล็อกอินด้วย Google เพื่อเข้าถึง n8n dashboard, จัดการ workflow และเชื่อมต่อ MCP Server",
+    "loginButton": "เข้าสู่ระบบ"
   },
   "blog": {
     "title": "Blog",

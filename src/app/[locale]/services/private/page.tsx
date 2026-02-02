@@ -27,7 +27,7 @@ export default function PrivatePage() {
             <h1 className="text-5xl max-md:text-4xl font-bold text-n2f-text mb-4">{t("title")}</h1>
             <p className="text-lg text-n2f-text-secondary max-w-[600px] mx-auto leading-relaxed mb-8">{t("desc")}</p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
+              <Link href="/shop" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
                 {t("interested")}
               </Link>
               <Link href="/services/saas" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg border border-n2f-border text-n2f-text-secondary hover:border-n2f-border-hover hover:text-n2f-text transition-all duration-200">
@@ -75,7 +75,7 @@ export default function PrivatePage() {
           <div className="text-center py-14 border-t border-n2f-border">
             <h2 className="text-2xl font-bold text-n2f-text mb-3">{t("ctaTitle")}</h2>
             <p className="text-n2f-text-muted mb-8">{t("ctaDesc")}</p>
-            <Link href="/login" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
+            <Link href="/shop" className="inline-flex items-center gap-2 px-8 py-3 font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200">
               {t("contactUs")}
             </Link>
           </div>
