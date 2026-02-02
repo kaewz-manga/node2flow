@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Globe } from "lucide-react";
 import FadeIn from "@/components/ui/FadeIn";
 import { useTranslations } from "next-intl";
 
@@ -15,13 +16,22 @@ const services = [
   { src: "/images/partners/googlesheets.svg", label: "Google Sheets" },
   { src: "/images/partners/line.svg", label: "LINE" },
   { src: "/images/partners/slack.svg", label: "Slack" },
-  { src: "/images/partners/woocommerce.svg", label: "WooCommerce" },
+  { src: "/images/partners/googledrive.svg", label: "Google Drive" },
+  { src: "/images/partners/youtube.svg", label: "YouTube" },
+  { src: "/images/partners/n8n.png", label: "n8n" },
+  { src: "", label: "External API" },
 ];
 
 function IconCard({ src, label }: { src: string; label: string }) {
   return (
     <div className="group card-glow flex flex-col items-center gap-1.5 p-3.5 px-2 bg-n2f-secondary border border-n2f-border rounded-xl hover:border-n2f-border-hover hover:bg-n2f-hover hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300">
-      <Image src={src} alt={label} width={36} height={36} className="h-9 w-auto" />
+      {src ? (
+        <Image src={src} alt={label} width={36} height={36} className="h-9 w-auto" />
+      ) : (
+        <div className="h-9 w-9 flex items-center justify-center rounded-lg bg-n2f-hover border border-n2f-border">
+          <Globe className="w-5 h-5 text-n2f-text-muted" />
+        </div>
+      )}
       <span className="text-xs text-n2f-text-muted text-center whitespace-nowrap">{label}</span>
     </div>
   );
@@ -110,11 +120,11 @@ export default function Architecture() {
             <Connector />
 
             {/* Services Layer */}
-            <div className="flex-1 max-w-[300px] max-[968px]:max-w-[400px] max-[968px]:w-full">
+            <div className="flex-1 max-w-[340px] max-[968px]:max-w-[400px] max-[968px]:w-full">
               <h3 className="text-xs font-medium text-n2f-accent text-center uppercase tracking-[2px] mb-4">
                 <span className="border-b border-n2f-accent/30 pb-1">{t("services")}</span>
               </h3>
-              <div className="grid grid-cols-2 gap-2.5 max-[968px]:grid-cols-3">
+              <div className="grid grid-cols-3 gap-2.5 max-[968px]:grid-cols-3">
                 {services.map((service) => (
                   <IconCard key={service.label} {...service} />
                 ))}
