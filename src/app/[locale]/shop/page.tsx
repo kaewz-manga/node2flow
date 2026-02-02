@@ -162,11 +162,16 @@ export default function ShopPage() {
             <div className="flex items-center gap-3 mb-6">
               <h2 className="text-3xl max-md:text-2xl font-bold text-n2f-text">SaaS Platform</h2>
               <span className="text-xs font-medium px-3 py-1 rounded-md uppercase tracking-[0.5px] bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                Live
+                {t("comingSoon")}
               </span>
             </div>
             <div className="grid grid-cols-1 gap-4">
-              <div className="card-glow flex flex-col bg-n2f-secondary border border-n2f-border rounded-xl p-7 hover:border-n2f-border-hover transition-colors duration-200 md:flex-row md:gap-8">
+              <div className="relative card-glow flex flex-col bg-n2f-secondary border border-n2f-border rounded-xl p-7 md:flex-row md:gap-8 opacity-60 cursor-not-allowed select-none">
+                <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-[2px]">
+                  <span className="px-4 py-1.5 text-sm font-medium tracking-[2px] uppercase text-n2f-text border border-n2f-border rounded-md bg-n2f-secondary/80">
+                    {t("comingSoon")}
+                  </span>
+                </div>
                 <div className="flex-1">
                   <div className="text-xs font-medium uppercase tracking-[1px] mb-3 text-purple-400">
                     SaaS Platform
@@ -181,19 +186,6 @@ export default function ShopPage() {
                         {tag}
                       </span>
                     ))}
-                  </div>
-                </div>
-                <div className="flex flex-col items-end justify-between md:min-w-[180px] pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-n2f-border md:pl-8">
-                  <div className="text-right mb-4">
-                    <span className="text-lg font-bold text-green-500">Free</span>
-                  </div>
-                  <div className="flex flex-col gap-2 w-full">
-                    <Link
-                      href="/products/mcp"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-n2f-accent text-black hover:bg-n2f-accent-dark transition-colors duration-200"
-                    >
-                      {t("buy")}
-                    </Link>
                   </div>
                 </div>
               </div>
